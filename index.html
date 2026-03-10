@@ -1,345 +1,239 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salesforce Dictionary</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-        
-        .dictionary-container {
-            display: flex;
-            height: 100vh;
-            margin: 0 auto;
-            max-width: 1200px;
-        }
-        
-        /* SIDEBAR STYLES */
-        .sidebar {
-            width: 300px;
-            background: #fff;
-            border-right: 1px solid #e1e4e8;
-            overflow-y: auto;
-            flex-shrink: 0;
-        }
-        
-        .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid #e1e4e8;
-            font-weight: 600;
-            color: #1f2937;
-            font-size: 18px;
-            background: #f8fafc;
-        }
-        
-        .nav-item {
-            display: block;
-            padding: 12px 20px;
-            color: #4a5568;
-            cursor: pointer;
-            border-left: 3px solid transparent;
-            transition: all 0.2s;
-        }
-        
-        .nav-item:hover {
-            background: #f7fafc;
-            color: #2d3748;
-        }
-        
-        .nav-item.active {
-            border-left-color: #3b82f6;
-            background: #eff6ff;
-            color: #1d4ed8;
-            font-weight: 500;
-        }
-        
-        /* CONTENT STYLES */
-        .content {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-            background: white;
-        }
-        
-        .content-section {
-            display: none;
-        }
-        
-        .content-section.active {
-            display: block;
-        }
-        
-        h1 {
-            color: #1a202c;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        p {
-            color: #4a5568;
-            line-height: 1.7;
-        }
-        
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            .dictionary-container {
-                flex-direction: column;
-                height: auto;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid #e1e4e8;
-            }
-        }
-    </style>
-</head>
-<body>
+Salesforce Introduction
+As customers have become the pivot around which the growth of any company revolves, it has become extremely important for companies to deploy appropriate customer relationship management (CRM) software solutions. However, customer requirements are diverse, and most companies do not find a suitable CRM solution that best fits their needs. In this situation, Salesforce has emerged as a market leader. With flexibility and reliability as its primary features, Salesforce is most likely to continue dominating the marketplace in the coming years.
 
-<div class="dictionary-container">
-    <!-- LEFT SIDEBAR -->
-    <div class="sidebar">
-        <div class="sidebar-header">📚 Salesforce Tutorial</div>
-        
-        <div class="nav-item active" onclick="showTab(0)">Introduction</div>
-        <div class="nav-item" onclick="showTab(1)">What is Salesforce?</div>
-        <div class="nav-item" onclick="showTab(2)">Salesforce Admin</div>
-        <div class="nav-item" onclick="showTab(3)">Lightning Components</div>
-        <div class="nav-item" onclick="showTab(4)">Marketing Cloud</div>
-        <div class="nav-item" onclick="showTab(5)">Salesforce CRM</div>
-        <div class="nav-item" onclick="showTab(6)">Architecture</div>
-        <div class="nav-item" onclick="showTab(7)">Developer Account</div>
-        <div class="nav-item" onclick="showTab(8)">Data Types</div>
-        <div class="nav-item" onclick="showTab(9)">Creating Application</div>
-        <div class="nav-item" onclick="showTab(10)">AppExchange</div>
-        <div class="nav-item" onclick="showTab(11)">Objects Tutorial</div>
-        <div class="nav-item" onclick="showTab(12)">Custom Fields</div>
-        <div class="nav-item" onclick="showTab(13)">Reports & Dashboards</div>
-        <div class="nav-item" onclick="showTab(14)">Wrapper Class</div>
-        <div class="nav-item" onclick="showTab(15)">Governor Limits</div>
-        <div class="nav-item" onclick="showTab(16)">Process Builder</div>
-        <div class="nav-item" onclick="showTab(17)">Workbench</div>
-        <div class="nav-item" onclick="showTab(18)">Batch Apex</div>
-        <div class="nav-item" onclick="showTab(19)">Workflow</div>
-        <div class="nav-item" onclick="showTab(20)">Triggers</div>
-        <div class="nav-item" onclick="showTab(21)">Lightning Tutorial</div>
-        <div class="nav-item" onclick="showTab(22)">Cheat Sheet</div>
-        <div class="nav-item" onclick="showTab(23)">FAQ</div>
-    </div>
+If you are a developer, you know the pain of following numerous code components in order to create an application. Well, Salesforce comes to your rescue. In this Salesforce developer tutorial, you will learn about Salesforce so as to fully understand it. With Salesforce, you can create applications in a few days or weeks and make them visible to as many clients as you want with the provided customizations. Isn’t it amazing? By the end of this Salesforce developer tutorial, you will start to love everything about Salesforce.
 
-    <!-- RIGHT CONTENT -->
-    <div class="content">
-        <!-- Tab 0 -->
-        <div class="content-section active">
-            <h1>Salesforce Tutorial – A Complete Guide for Beginners</h1>
-            <p>Welcome to the complete Salesforce Tutorial. This guide will walk you through everything you need to know to get started with Salesforce, from basic concepts to advanced development.</p>
-            <p>Salesforce is a cloud-based software company that provides a platform for businesses to manage customer relationships, sales, and operations.</p>
-        </div>
+Watch this Salesforce Full Course Tutorial video:
 
-        <!-- Tab 1 -->
-        <div class="content-section">
-            <h1>What is Salesforce?</h1>
-            <p>Salesforce is a cloud-based software company that provides its customers with a platform to develop their own applications without following the tough steps that they used to follow in the legacy system.</p>
-            <p>It is currently the number one Customer Relationship Management (CRM) platform in the world, used by companies of all sizes to connect with their customers.</p>
-        </div>
+Video Thumbnail
+The question now arises: How does Salesforce work to offer its customers a platform like this? Salesforce functions as a cloud-based platform that equips its clients with tools to construct applications or platforms utilizing its own products.
 
-        <!-- Tab 2 -->
-        <div class="content-section">
-            <h1>What is a Salesforce Administrator?</h1>
-            <p>A Salesforce Administrator is a business leader who knows how to use the features and functionality of the platform to solve business problems.</p>
-            <p>They are responsible for managing users, data, security, and building automation within the Salesforce environment.</p>
-        </div>
+Why Should We Learn Salesforce?
+Salesforce started as a Software-as-a-Service (SaaS) company providing a CRM platform on the cloud.
 
-        <!-- Tab 3 -->
-        <div class="content-section">
-            <h1>Salesforce Lightning Components</h1>
-            <p>Salesforce Lightning is a modern user interface framework developed by Salesforce. It is designed to help developers create enterprise applications faster.</p>
-            <p>It provides out-of-the-box components that make building apps easier than with the classic interface.</p>
-        </div>
+Along with SaaS, Salesforce provides a platform where its clients can create their own applications. This is called Platform-as-a-Service (PaaS). Although most of Salesforce’s revenue comes through PaaS, SaaS is also used by many Fortune 500 companies.
 
-        <!-- Tab 4 -->
-        <div class="content-section">
-            <h1>Salesforce Marketing Cloud</h1>
-            <p>Marketing Cloud is a digital marketing platform that allows businesses to create and manage marketing relationships and campaigns with customers.</p>
-            <p>It supports email, social media, and mobile marketing, as well as data analysis and audience management.</p>
-        </div>
+Salesforce CRM
+Salesforce CRM helps companies manage relationships with their customers and integrate with other important systems. Salesforce CRM is a SaaS tool that aids companies in creating personalized solutions for their marketing, services, sales, and e-commerce problems.
 
-        <!-- Tab 5 -->
-        <div class="content-section">
-            <h1>Salesforce CRM</h1>
-            <p>Salesforce CRM (Customer Relationship Management) is a technology for managing all your company’s relationships and interactions with customers and potential customers.</p>
-            <p>It helps improve profitability by streamlining processes and ensuring customer satisfaction.</p>
-        </div>
+All Salesforce CRM data is cloud-based, so it can be accessed remotely from anywhere. It helps accelerate a company’s productivity. Hence, is a major factor in growth.
 
-        <!-- Tab 6 -->
-        <div class="content-section">
-            <h1>Salesforce Architecture</h1>
-            <p>The architecture of Salesforce is designed to be scalable, secure, and multi-tenant. It consists of different layers:</p>
-            <ul>
-                <li><strong>Multi-tenant Architecture:</strong> Multiple customers share the same infrastructure.</li>
-                <li><strong>Metadata-driven:</strong> The behavior of the application is driven by metadata.</li>
-                <li><strong>API Access:</strong> Everything in Salesforce is accessible via APIs.</li>
-            </ul>
-        </div>
+What is SFDC?
+SFDC stands for Salesforce.com, an official website of Salesforce. It was launched in 1999 by Marc Benioff.
 
-        <!-- Tab 7 -->
-        <div class="content-section">
-            <h1>Creating a Salesforce Developer Account</h1>
-            <p>Creating a free Developer Edition (DE) account is the first step for learning Salesforce.</p>
-            <p>1. Go to developer.salesforce.com</p>
-            <p>2. Click Sign Up.</p>
-            <p>3. Fill in your details and verify your email.</p>
-        </div>
+You can visit the website and register on it. You can also start your free trial for 30 days. This will help you get hands-on experience with SFDC.
 
-        <!-- Tab 8 -->
-        <div class="content-section">
-            <h1>Salesforce Data Types</h1>
-            <p>Salesforce supports various data types for fields:</p>
-            <ul>
-                <li><strong>Text:</strong> Alphanumeric characters.</li>
-                <li><strong>Number:</strong> Numeric values.</li>
-                <li><strong>Date/Time:</strong> Calendar dates and times.</li>
-                <li><strong>Picklist:</strong> A list of options to choose from.</li>
-                <li><strong>Checkbox:</strong> Boolean values (True/False).</li>
-            </ul>
-        </div>
+SFDC is laden with resources and demos that will help you get a better understanding of Salesforce.
 
-        <!-- Tab 9 -->
-        <div class="content-section">
-            <h1>Creating a Salesforce Application</h1>
-            <p>An app in Salesforce is a logical container for a set of tabs, objects, and other items that work together to solve a specific business problem.</p>
-            <p>You can create apps using the App Manager in Setup.</p>
-        </div>
+Get 100% Hike!
 
-        <!-- Tab 10 -->
-        <div class="content-section">
-            <h1>Salesforce AppExchange</h1>
-            <p>AppExchange is Salesforce's marketplace for business applications. It's like an "App Store" for your CRM.</p>
-            <p>You can find thousands of pre-built apps and components to extend Salesforce functionality.</p>
-        </div>
+Master Most in Demand Skills Now!
 
-        <!-- Tab 11 -->
-        <div class="content-section">
-            <h1>Salesforce Objects Tutorial</h1>
-            <p>Objects are essentially database tables in Salesforce. They store data.</p>
-            <p><strong>Standard Objects:</strong> Pre-built objects like Account, Contact, Lead.</p>
-            <p><strong>Custom Objects:</strong> Objects you create to store information specific to your organization.</p>
-        </div>
+Email Address
 
-        <!-- Tab 12 -->
-        <div class="content-section">
-            <h1>Creating Custom Fields</h1>
-            <p>Custom fields allow you to capture specific data points on objects.</p>
-            <p>Navigate to: Object Manager > [Select Object] > Fields & Relationships > New.</p>
-        </div>
++91  IN          INDIA
+Phone Number
+By providing your contact details, you agree to our Terms of Use & Privacy Policy
+Why SFDC?
+SFDC is a market leader in CRM. Here are some of the reasons why:
 
-        <!-- Tab 13 -->
-        <div class="content-section">
-            <h1>Reports and Dashboards</h1>
-            <p><strong>Reports:</strong> Lists of data based on specific criteria.</p>
-            <p><strong>Dashboards:</strong> Visual representations of report data, showing key metrics at a glance.</p>
-        </div>
+SFDC altogether reduces the development time and cost and delivers the applications in a much shorter time.
+SFDC allows the buying and selling of applications. SFDC’s AppExchange feature has proven to be a good marketplace for users to sell their custom-made applications.
+SFDC’s availability on the cloud makes it accessible from anywhere in the world.
+Traditional CRM Vs. Salesforce CRM
+CRM is considered the most efficient technique for creating relationships between customers. It can be used to target contacts, leads, and opportunities. You can also use CRM software for dealing with tracking, product planning, manufacturing, and shipping.
 
-        <!-- Tab 14 -->
-        <div class="content-section">
-            <h1>Wrapper Class in Salesforce</h1>
-            <p>A wrapper class is a custom class defined by a developer to display different objects on a Visualforce page or Lightning component.</p>
-            <p>It acts as a container to hold multiple data types in a single unit.</p>
-        </div>
+Traditional CRM	Salesforce CRM
+Hosted on a company’s own server	Hosted on the cloud
+Difficult to understand and use	Easy to understand and use
+Takes months or even years to set up	Can be set up in a few days or weeks
+Requires overall higher cost	Requires overall lower cost
+Next up in this Salesforce developer tutorial for beginners, we will take a look at why Salesforce is gaining so much popularity.
 
-        <!-- Tab 15 -->
-        <div class="content-section">
-            <h1>Governor Limits in Salesforce</h1>
-            <p>Because Salesforce is a multi-tenant environment, it enforces limits to ensure no single organization monopolizes shared resources.</p>
-            <p>Examples include limits on SOQL query rows (50,000), CPU time, and heap size.</p>
-        </div>
+quiz-icon
+Want to strengthen your learning of Salesfoce.
+Try out the quiz with some interesting questions.
+Take a Quiz
+Salesforce Benefits
+Salesforce offers its customers many benefits that make it a leader in the CRM space. Some of the benefits of Salesforce are mentioned here for your reference:
 
-        <!-- Tab 16 -->
-        <div class="content-section">
-            <h1>Process Builder</h1>
-            <p>Process Builder is a point-and-click tool that lets you easily automate if/then business processes.</p>
-            <p>It is more powerful than Workflow Rules and allows for multiple actions in a single process.</p>
-        </div>
+Salesforce is a complete, feature-loaded solution for sales, marketing, service, community, and partner management.
+You can store your Salesforce data in the cloud. This will allow your team to access the data from anywhere in the world.
+Salesforce is versatile and caters to companies of different sizes.
+Salesforce offers its services on a pay-as-you-go service model.
+Salesforce helps you accelerate sales productivity and increase customer loyalty, retention, and satisfaction.
+Salesforce offers easy integration with third-party apps, which can help in the growth of your company.
+Features of Salesforce
+Salesforce offers many features to its customers to help them grow their businesses. Here, we have mentioned some of those features for your reference:
 
-        <!-- Tab 17 -->
-        <div class="content-section">
-            <h1>Workbench in Salesforce</h1>
-            <p>Workbench is a powerful, web-based suite of tools designed for administrators and developers to interact with Salesforce organizations.</p>
-            <p>It is commonly used to run SOQL queries, REST API calls, and migrate data.</p>
-        </div>
+Contact Management: Pulls a customer’s data, such as customer communication, activity history, etc.
+Marketing and Sales Lead: Measures customer engagement through email activity tracking and converts leads to customers
+Build and Run Innovative Apps: Builds, scales, and manages apps
+Salesforce Analytics: Builds dashboards, pulls data, and performs analysis
+Sales Community:Helps companies connect with customers, employees, and partners
+Salesforce Engine: Helps build personalized contacts with customers for various campaigns designed by the marketing team
+Lead Management: Helps track the progress of leads
+Partnership Management: Helps build partner communities and share goals, activities, and objectives
+Workflow and Approvals: Offers a real-time view of the sales team’s forecast, etc.
+Features of Salesforce
 
-        <!-- Tab 18 -->
-        <div class="content-section">
-            <h1>Batch Apex</h1>
-            <p>Batch Apex is used to process large numbers of records that would exceed normal processing limits.</p>
-            <p>It breaks the processing into manageable chunks to avoid hitting Governor Limits.</p>
-        </div>
+History of Salesforce
+Founded in 1999 by Marc Benioff, Salesforce began with a humble San Francisco origin. Its IPO in 2004 raised an impressive $110 million. The company’s significant milestone came in 2014 with the introduction of the Customer Success Platform, integrating sales, service, marketing, analytics, and more. Collaborations with Facebook and Apple further enhanced its offerings. Salesforce’s global presence expanded with services provided in 16 languages, serving a vast customer base exceeding 150,000. The company now boasts a dedicated workforce of over 20,000 employees, solidifying its position as a leading CRM platform.
 
-        <!-- Tab 19 -->
-        <div class="content-section">
-            <h1>Workflow in Salesforce</h1>
-            <p>Workflow rules automate standard internal procedures and processes to save time across your organization.</p>
-            <p>They consist of: 1) Criteria (If), 2) Actions (Then).</p>
-        </div>
+Salesforce Products
+salesforce cloud services
 
-        <!-- Tab 20 -->
-        <div class="content-section">
-            <h1>Triggers in Salesforce</h1>
-            <p>Apex triggers enable you to perform custom actions before or after events to records in Salesforce, such as insertions, updates, or deletions.</p>
-            <p>Syntax: `trigger TriggerName on ObjectName (trigger_events) { ... }`</p>
-        </div>
+Salesforce offers a range of products tailored to diverse customer needs. Here are some of the notable Salesforce products:
 
-        <!-- Tab 21 -->
-        <div class="content-section">
-            <h1>Salesforce Lightning Tutorial</h1>
-            <p>Lightning Experience is the modern, fast, and beautiful user interface designed for Salesforce.</p>
-            <p>It offers new features, improved design, and better performance compared to Salesforce Classic.</p>
-        </div>
+Sales Cloud: The primary Salesforce offering, Sales Cloud assists companies in managing their sales processes effectively.
+Marketing Cloud: Designed for digital marketing services, Marketing Cloud empowers companies to enhance their marketing strategies.
+Service Cloud: Service Cloud is geared towards customer support teams, enabling them to provide top-notch service and assistance.
+Commerce Cloud: With Commerce Cloud, users can effortlessly sell their products, streamlining their e-commerce operations.
+Experience Cloud: Experience Cloud grants users the flexibility to create customized platforms as per their specific requirements.
+IoT Cloud: IoT Cloud is utilized for processing and storing Internet of Things (IoT) data, enabling businesses to leverage IoT technologies effectively.
+Analytics Cloud: Analytics Cloud provides a robust platform for data analysis and storage, aiding organizations in deriving meaningful insights.
+Health Cloud: Health Cloud serves as a specialized CRM platform for healthcare and life science organizations, catering to their unique needs.
+How Do We Access Salesforce?
+You can access Salesforce by registering for a 30-day free trial. Let us now discuss the procedures for accessing Salesforce.
 
-        <!-- Tab 22 -->
-        <div class="content-section">
-            <h1>Salesforce Cheat Sheet</h1>
-            <p>Quick reference guide for common Salesforce tasks:</p>
-            <ul>
-                <li><strong>Global Search:</strong> Magnifying glass icon.</li>
-                <li><strong>Create New:</strong> The "Create" dropdown in the top right.</li>
-                <li><strong>Setup:</strong> Gear icon > Setup.</li>
-            </ul>
-        </div>
+Visit this link here (official Salesforce website link for registering).
+salesforce website
 
-        <!-- Tab 23 -->
-        <div class="content-section">
-            <h1>Frequently Asked Questions</h1>
-            <p><strong>Q: Is Salesforce free?</strong><br>
-            A: It has a free Developer Edition for learning, but production licenses are paid.</p>
-            
-            <p><strong>Q: What language does Salesforce use?</strong><br>
-            A: Apex (similar to Java) for backend, and Lightning Web Components (JavaScript) for frontend.</p>
-        </div>
-    </div>
-</div>
+At the bottom, click on the Start Free Trial button.
+Add all the mandatory information required.
+start your free trial
 
-<script>
-    function showTab(tabIndex) {
-        // Get all nav items and content sections
-        const navItems = document.querySelectorAll('.nav-item');
-        const contentSections = document.querySelectorAll('.content-section');
-        
-        // Remove 'active' class from all items
-        navItems.forEach(item => item.classList.remove('active'));
-        contentSections.forEach(section => section.classList.remove('active'));
-        
-        // Add 'active' class to clicked item and corresponding content
-        navItems[tabIndex].classList.add('active');
-        contentSections[tabIndex].classList.add('active');
-    }
-</script>
+It will take some time to set up the free trial account.
+account created
 
-</body>
-</html>
+Once it is set up, you can see the welcome screen with the demo data.
+Welcome Screen
+
+Create a New Account for your company by clicking on New in the Account tab.
+new account
+
+A pop-up will flash, wherein you must add the required data in the respective fields.
+add required data
+
+At last, click on Save, and you will be redirected to the welcome screen where you can now see your new company account.
+Why Should We Choose Salesforce?
+The following are some of the reasons that make Salesforce the no. 1 CRM platform currently:
+
+Cloud-based accessibility: Salesforce enables effortless data access from any location worldwide.
+Affordability: Salesforce caters to companies of all sizes, including startups, with cost-effective solutions.
+Versatile capabilities: The platform provides a wide range of features to develop and manage apps and businesses, attracting enterprises.
+Simplified setup: Salesforce eliminates the need for complex installations or repairs, allowing users to focus solely on app development.
+No software installation: Users can run business activities and build applications without the hassle of software installations.
+Seamless integration: Salesforce easily integrates with popular third-party applications like Gmail, expanding its functionality.
+User-friendly interface: Salesforce offers a user-friendly interface, swift app deployment, and efficient outputs.
+Cost reduction: Salesforce helps reduce development costs, making it an economical choice.
+Why is Salesforce Gaining Popularity?
+Why is Salesforce Gaining Popularity?
+
+Source: Salesforce
+
+It is quite evident from the graph how Salesforce has topped the market consecutively since 2017, leaving behind Microsoft and Oracle. Although it costs more, Salesforce provides the most user-friendly interface when compared to any other CRM software.
+
+Salesforce offers an entire range of applications, which can be very useful in lead generation, improving sales, and deal closure. Along with that, Salesforce also helps in the domains of marketing, customer service, and analytics.
+
+The following are some of the reasons why Salesforce is gaining so much popularity:
+
+Scalability and customization
+Multi-tenant Salesforce architecture
+Partner ecosystem
+Data security
+Continuous enhancement of the application and the platform
+Differences Between Salesforce CRM and Dynamic CRM
+In today’s market, there are a lot of options for choosing a CRM platform. The major players are Salesforce, SAP, Oracle, and Microsoft Dynamic. The battle is between Salesforce CRM and Microsoft Dynamic CRM. So, let us discuss the differences between Salesforce CRM and Dynamic CRM:
+
+Capabilities	Salesforce CRM	Microsoft Dynamic CRM
+Accessibility	It offers web and mobile app accessibility from anywhere.	It also offers web and mobile app accessibility from anywhere.
+Deployment Options	It only has the cloud deployment option.	It can be deployed in the cloud, on-premise, and even at partner hosting.
+Storage	It offers storage of 1 GB per user for users ranging between 1–20.	It offers 10 GB of shared storage for 1–20 users.
+Language Interface	It offers limited language support.	It offers support in 35 languages.
+Pricing	It has a pricing rate of USD 25–300 per user per month.	It has a pricing rate of USD 65–135 per user per month.
+Cloud Computing
+
+Cloud Computing is internet-based computing that involves shared resources, information, and software, which has been provided by computers and mobiles.
+
+In other words, a cloud is a unique place where you can store as much data as you want to make it accessible from anywhere in the world with an internet connection and a device to access it. Instead of storing data on your device, uploading the data onto the cloud and viewing it from some other place is called accessing the cloud.
+
+There are three types of cloud services:
+
+Infrastructure-as-a-Service (IaaS)
+Software-as-a-Service (SaaS)
+Platform-as-a-Service (PaaS)
+Paas
+
+IaaS	SaaS	PaaS
+Concentrates on infrastructural services, such as server, hosting, storage services, etc	The software is licensed on a subscription basis and is hosted centrally.	Provides a platform for its customers to develop and deploy apps
+Salesforce does not use IaaS, as there is no need to install any software or hardware.	Salesforce uses SaaS, as there is no need for installation, downloads, or setup.	Salesforce uses PaaS, as it takes care of the underlying infrastructural parts, and the users are given predefined tools using which they can build their own applications.
+Now, let us talk about whether Salesforce is a SaaS or PaaS and the difference between SaaS, IaaS, and PaaS.
+
+Differences Between the Services and Components Managed by IaaS, PaaS, and SaaS
+Infrastructure-as-a-Service (IaaS)
+When a cloud service provider uses IaaS, they mostly concentrate on infrastructural services such as servers, hosting, storage services, etc.
+
+Salesforce does not use IaaS, as there is no need to install any software or hardware program. Instead, all data and apps are stored securely on the cloud. There is also no need for any backup, as the cloud automatically takes care of it.
+
+Platform-as-a-Service (PaaS)
+PaaS provides a platform for users to develop and deploy apps. Users can customize this according to their business needs. They need to manage their data and application resources. PaaS is primarily used by developers. The provider takes care of the underlying infrastructural parts, and the users are given predefined tools using which they can build their applications. PaaS is also used by Salesforce.
+
+Software-as-a-Service (SaaS)
+SaaS is a software delivery model wherein the software is licensed on a subscription basis and hosted centrally.
+
+Salesforce uses SaaS, as there is no need for installation, download, or setup. You need to log in to your Salesforce account and start using your subscribed apps over the cloud.
+
+manage
+
+Next, let us talk about the legacy systems and platforms in Salesforce.
+
+Problems with Traditional Software Methodology (Legacy Platforms)
+In the traditional software methodology, to create an application, developers had to follow these steps:
+
+Formation of an idea for building an application
+Buying and setting up hardware
+Installing software
+Defining users and providing them with different accesses
+Setting up means for reporting and analytics
+Building security around the application
+Making the application mobile phone accessible
+A usable application is created, but the entire process is tedious and time-consuming. It generally takes around 6 to 12 months to implement these steps.
+
+Traditional System
+
+To solve this problem, Salesforce came into the picture and became popular.
+
+With Salesforce, developers are not worried about buying and setting up the hardware, installing the software, defining users, setting up means for reporting and analytics, building security around the application, or making it mobile phone accessible. All these core components come as a single package in Salesforce.
+
+Build app
+
+Developers can go ahead and create an application and release it to their clients. As the developers do not need to worry about any of the core components, Salesforce has gradually increased their productivity. Now, developers can straightaway build applications on the platform provided to them by Salesforce and release them to the cloud.
+
+Looking for the best way to assess Salesforce knowledge? Below are the interview questions on Salesforce:
+–Salesforce Lightning Interview Questions
+–Salesforce Interview Questions and Answers
+
+Recommended Audience
+This Salesforce tutorial is beneficial for anyone who wants to learn about CRM. Software developers, Salesforce administrators, cloud computing professionals, and project managers can all learn from and benefit from this Salesforce tutorial.
+
+Prerequisites
+There are no prerequisites to taking up this Salesforce tutorial.
+
+Simplify your Salesforce experience with our detailed Salesforce Cheat Sheet – everything you need to master the platform in one place!
+
+Frequently Asked Questions
+What is Salesforce, and why is it used?
+Salesforce.com is a SaaS company that leverages cloud computing to design customer relationship management (CRM) software for organizations. This CRM software can be used by salespeople to track sales, support people to track the resolution of queries and cases, and the entire workforce of a company to collaborate with each other.
+Is Salesforce easy to learn?
+Though Salesforce is extensive. If you put your mind and concentration into learning Salesforce CRM and at the same time take up an online Salesforce training course, you will be able to master Salesforce within weeks.
+What’s so great about Salesforce?
+The capability of Salesforce to build on-demand software reduces the cost for end customers. This is because it provides a common platform for managing networking, hardware, and software. Thus, sales and communication can be significantly improved in a cost-effective manner.
+Is it good to learn about Salesforce?
+Yes, it is good to learn Salesforce. The demand for Salesforce administrators and developers is on the rise. Numerous companies are in pursuit of skilled people who can help manage the Salesforce suite. For this particular reason, Salesforce is definitely a career option to consider.
+Does Salesforce have a future?
+Ever since Salesforce replaced Oracle’s Seibel around two decades ago, it has continued to dominate the CRM world. Salesforce is evolving at an alarming rate in terms of functionalities and features. Salesforce has a future, undoubtedly, and you can incline the course of your career with the rapid evolution of Salesforce by becoming a certified individual.
+Which companies use Salesforce?
+Salesforce CRM is leveraged by several big companies. The most prominent ones are Spotify, AWS, U.S. Bank, Toyota, Aldo, and the New York Post.
+Does Salesforce require coding?
+Salesforce involves coding when it comes to operating around its inherent programming languages, Apex and Visualforce. But no matter, these languages resemble a great deal with Java. So, if you have an understanding of Java, you will face no hurdles while mastering Salesforce.
