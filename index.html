@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce Dictionary</title>
+    
+    <!-- BOOTSTRAP CSS (This handles the layout/grid like the original site) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CUSTOM STYLE (To make it look like a dictionary) -->
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif; /* Matches the original font family */
+        }
+        
+        /* Main Container */
+        .dictionary-wrapper {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        /* LEFT SIDEBAR (The Tabs) */
+        .sidebar {
+            width: 300px;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            height: calc(100vh - 40px);
+            position: sticky;
+            top: 20px;
+            overflow-y: auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-title {
+            background-color: #1289EE; /* Salesforce Blue-ish */
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* Accordion Items */
+        .topic-item {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .topic-header {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 15px 20px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .topic-header:hover {
+            background-color: #f9f9f9;
+        }
+
+        .topic-header.active {
+            color: #1289EE;
+            font-weight: 700;
+        }
+
+        /* Arrow Icon */
+        .arrow-icon {
+            transition: transform 0.3s;
+        }
+        
+        .topic-header.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Sub-Menu (The hidden part) */
+        .topic-content {
+            display: none;
+            background: #fafafa;
+            padding: 0;
+        }
+
+        .topic-content a {
+            display: block;
+            padding: 10px 20px 10px 30px;
+            color: #333;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+        }
+
+        .topic-content a:hover {
+            background-color: #fff;
+            border-left: 3px solid #ED7730; /* Orange accent */
+            color: #ED7730;
+        }
+
+        /* RIGHT CONTENT AREA */
+        .main-content {
+            flex-grow: 1;
+            margin-left: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        h1 { font-size: 28px; margin-bottom: 20px; color: #333; }
+        p { line-height: 1.6; color: #555; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .dictionary-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                margin-bottom: 20px;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container dictionary-wrapper">
+        
+        <!-- LEFT SIDE: The Dictionary Menu -->
+        <div class="sidebar">
+            <div class="sidebar-title">Salesforce Dictionary</div>
+            
+            <!-- Topic 1 -->
+            <div class="topic-item">
+                <button class="topic-header active" onclick="toggleTopic(this)">
+                    Introduction
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="topic-content" style="display: block;">
+                    <a href="#what-is-salesforce">What is Salesforce?</a>
+                    <a href="#history">History of Salesforce</a>
+                    <a href="#careers">Careers in Salesforce</a>
+                </div>
+            </div>
+
+            <!-- Topic 2 -->
+            <div class="topic-item">
+                <button class="topic-header" onclick="toggleTopic(this)">
+                    Salesforce Objects
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="topic-content">
+                    <a href="#standard-objects">Standard Objects</a>
+                    <a href="#custom-objects">Custom Objects</a>
+                    <a href="#fields">Fields & Data Types</a>
+                </div>
+            </div>
+
+            <!-- Topic 3 -->
+            <div class="topic-item">
+                <button class="topic-header" onclick="toggleTopic(this)">
+                    Automation
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="topic-content">
+                    <a href="#flows">Flows</a>
+                    <a href="#process-builder">Process Builder</a>
+                    <a href="#workflows">Workflow Rules</a>
+                </div>
+            </div>
+
+            <!-- Topic 4 -->
+            <div class="topic-item">
+                <button class="topic-header" onclick="toggleTopic(this)">
+                    Security
+                    <span class="arrow-icon">▼</span>
+                </button>
+                <div class="topic-content">
+                    <a href="#profiles">Profiles</a>
+                    <a href="#permission-sets">Permission Sets</a>
+                    <a href="#roles">Roles & Hierarchy</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: The Content -->
+        <div class="main-content">
+            <h1 id="what-is-salesforce">What is Salesforce?</h1>
+            <p>Salesforce is a cloud-based software company that provides customer relationship management (CRM) service. It also sells a complementary suite of enterprise applications focused on customer service, marketing automation, analytics, and application development.</p>
+            
+            <p>Click on the tabs on the left to navigate through different topics. This layout is built using Flexbox and mimics the behavior of the Intellipaat tutorial site you shared.</p>
+            
+            <br>
+            <h2 id="history">History</h2>
+            <p>Salesforce was founded in 1999 by former Oracle executive Marc Benioff, together with Parker Harris, Dave Moellenhoff, and Frank Dominguez.</p>
+            
+            <br>
+            <h2 id="standard-objects">Standard Objects</h2>
+            <p>Standard objects are objects that are included with Salesforce by default. For example, Account, Contact, Lead, and Opportunity are all standard objects.</p>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT FOR THE ACCORDION -->
+    <script>
+        function toggleTopic(buttonElement) {
+            // 1. Toggle the active class for styling (color change)
+            buttonElement.classList.toggle("active");
+
+            // 2. Find the content div next to the button
+            var contentDiv = buttonElement.nextElementSibling;
+
+            // 3. Toggle visibility (Show/Hide)
+            if (contentDiv.style.display === "block") {
+                contentDiv.style.display = "none";
+            } else {
+                contentDiv.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
