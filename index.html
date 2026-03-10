@@ -637,12 +637,129 @@
     <p>According to statistics, the requirement for database administrators, especially Salesforce administrators, is anticipated to increase by 11% by 2026. The future of a Salesforce admin has and will grow as a result of their undeniable role in carrying out a successful business.</p>
 </div>
 
-        <!-- TAB 4: MARKETING CLOUD -->
-        <div class="content-section">
-            <h1>Salesforce Marketing Cloud</h1>
-            <p>Marketing Cloud is a digital marketing platform that allows businesses to create and manage marketing relationships and campaigns with customers.</p>
-            <p>It supports email, social media, and mobile marketing, as well as data analysis and audience management.</p>
+        <!-- TAB 5: LIGHTNING COMPONENTS (UPDATED) -->
+<div class="content-section">
+    <h1>What are Salesforce Lightning Components?</h1>
+    <p>The Salesforce Lightning Components are user interface (UI) frameworks that can be used by Salesforce developers for building interactive desktop applications and mobile technologies. The Salesforce Lightning components can be reused and are self-contained.</p>
+    <p>Basically, the lightning framework was created by Salesforce to develop endless applications and technologies. A few of the common features are:</p>
+    <ul>
+        <li>These lightning components have <strong>‘.cmp’</strong> as their extensions.</li>
+        <li>The Salesforce Lightning component framework uses the concept of <strong>‘web components’</strong>.</li>
+        <li>The languages used for building the Salesforce lightning apps are <strong>Apex, Html, CSS, and JavaScript</strong>.</li>
+    </ul>
+
+    <h2>Using Salesforce Lightning Components</h2>
+    <p>Salesforce Lightning Components can be used to build stand-alone applications which can also be hosted on Salesforce. The lightning framework is also being used by the Salesforce CRM for handling high demand and streamlining processes between businesses, clients, and IT. This has been possible only because lightning components can be used to customize the Salesforce environment in many different ways.</p>
+
+    <h3>How to Create Salesforce Lightning Components</h3>
+    <ol>
+        <li>First, you need to log into your Salesforce developer account.</li>
+        <li>After logging in, move the cursor to <strong>Developer Console</strong> and select.</li>
+        <li>After navigating to the Developer Console, go to <strong>File —> New —> Lightning Component</strong>.</li>
+        <li>Enter a desired name for the lightning component.</li>
+        <li>Enter a description of the component and click on the <strong>Save</strong> option.</li>
+        <li>Once saved, add the configurations to the saved component. Note that you have the liberty to select multiple options in the Component Configuration section.</li>
+        <li>Finally, click on <strong>‘Submit’</strong> to create the lightning component.</li>
+    </ol>
+
+    <h2>Salesforce Lightning Experience</h2>
+    <p>Salesforce Lightning experience is a new age, prompt, and intelligent user interface to build modern enterprise-grade solutions. It has been built by using the Salesforce1 Mobile App technology and combines both Lightning Designing System (LDS), Lightning app builder, and Lightning Components.</p>
+    <p>The sales teams have been benefited in a whole new way as they can aim at more deal closures. The lightning experience has helped them close deals faster and sell quicker. Also, Salesforce has now synced the desktop Salesforce Lightning Experience with mobile Salesforce1 to help the sales representatives search for potential clients.</p>
+
+    <h2>Lightning Component Bundle</h2>
+    <p>A Lightning Component Bundle is a set of all the necessary resources related to a component such as javascript controller, javascript helper, renderer, CSS styles, etc.</p>
+    
+    <div class="cloud-grid">
+        <div class="cloud-card">
+            <h3>Helper</h3>
+            <p>Helper consists of the javascript code for the component and its function is to segregate the calls to the server. Helper is reusable as its defined methods can be called from the controller and the renderer.</p>
         </div>
+
+        <div class="cloud-card">
+            <h3>Component</h3>
+            <p>Component consists of both Html codes and some lightning tags.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>Controller</h3>
+            <p>The Controller contains the javascript code for the component. It is required for calling the action events which are declared in the lightning component.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>Renderer</h3>
+            <p>The Renderer carries the code that you need to execute before or after your component elements are rendered. Types of rendering behavior include: Render, AfterRender, Rerender, and Unrender.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>SVG</h3>
+            <p>SVG (Scalable Vector Graphics), is a resource used in Lightning App Builder or Community Builder.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>Style</h3>
+            <p>The ‘Style’ resource consists of the custom style classes which you will be using in your component.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>Design</h3>
+            <p>For creating attributes to be used at the design time, you have to use the ‘Design’ resource. These attributes are used while working on the Lightning App builder tool.</p>
+        </div>
+    </div>
+
+    <h2>Components in Flow</h2>
+    <p>Flows in Salesforce are effective Salesforce tools used in the automation of many business processes. Also, no custom code usage is required while working with Flows.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Component</th>
+                <th>Functionality</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Advanced Navigation Button</strong></td>
+                <td>There are 12 different features which also include styling and quick actions.</td>
+            </tr>
+            <tr>
+                <td><strong>Barcode Scanner</strong></td>
+                <td>Using this component, you can easily scan different types of barcodes using a flow and the Salesforce Mobile App.</td>
+            </tr>
+            <tr>
+                <td><strong>Carousel</strong></td>
+                <td>The component lets you display a set of slides in a constantly playing carousel inside a screen flow.</td>
+            </tr>
+            <tr>
+                <td><strong>Copy to Clipboard Button</strong></td>
+                <td>You can copy the provided content into the system clipboard using this component.</td>
+            </tr>
+            <tr>
+                <td><strong>Datatable</strong></td>
+                <td>Use this component to insert a table containing rows and columns into your flow screen.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Advantages of Salesforce Lightning Components</h2>
+    <ul>
+        <li>It lets developers use a standardized JavaScript framework.</li>
+        <li>It permits users to create customized pages and functions without the interference of any third-party framework.</li>
+        <li>One of the biggest advantages is <strong>‘Responsiveness’</strong>, i.e., it can fit any device.</li>
+        <li>Allows reusability of resources.</li>
+        <li>The results are faster while responding to user activities, messages, and other events (Highly event driven).</li>
+    </ul>
+
+    <h2>Disadvantages of Salesforce Lightning Components</h2>
+    <ul>
+        <li>Salesforce Lightning components take a lot of time when it comes to learning. It actually has a higher learning curve when compared to Visualforce.</li>
+        <li>Working with Salesforce Lightning Components can be complex and difficult sometimes.</li>
+        <li>As Salesforce Lightning Components is absolutely a new concept, there are still more new features yet to be supported by it.</li>
+        <li>The number of out-of-the-box components is still very low.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Lightning Components may be new to you. But they have helped the Salesforce platform become more accessible, flexible, and easier to utilize. If you are looking to optimize the user experience and build a faster web page, Salesforce Lightning Web Components should definitely be the first thing to cross your mind.</p>
+</div>
 
         <!-- TAB 5: SALESFORCE CRM -->
         <div class="content-section">
@@ -817,6 +934,7 @@
 
 </body>
 </html>
+
 
 
 
