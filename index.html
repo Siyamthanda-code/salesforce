@@ -1706,12 +1706,88 @@
     <p>Once you create all the custom fields, they will appear in the Custom Fields & Relationships list.</p>
 </div>
 
-        <!-- TAB 14: WRAPPER CLASS -->
-        <div class="content-section">
-            <h1>Wrapper Class in Salesforce</h1>
-            <p>A wrapper class is a custom class defined by a developer to display different objects on a Visualforce page or Lightning component.</p>
-            <p>It acts as a container to hold multiple data types in a single unit.</p>
+        <!-- TAB 15: REPORTS & DASHBOARDS (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>How to Create Reports and Dashboards in Salesforce</h1>
+    
+    <h2>What is a Salesforce Report?</h2>
+    <p>A report contains data in an organized form. Salesforce reports contain data that is organized according to predefined criteria. The data that is uploaded on Salesforce is used to generate reports. Reports on Salesforce can be shared according to the user’s needs. There are various types of folders available to store Salesforce Reports which decide the accessibility of that report. The folders could be hidden, public, shared, private, read-only, etc. Reports are consistently needed in an organization to help better understand different processes.</p>
+
+    <h2>What is a Dashboard?</h2>
+    <p>A dashboard is used to see a pictorial representation of reports. Organizing visual data together helps in understanding them faster. You can use the dashboard to show the reports in various forms of charts like pie charts, funnel charts, etc. You can add different components to a Dashboard. Each of these components will correspond to a particular report. A report can be a part of two or more components.</p>
+
+    <h2>How to Create Reports in Salesforce?</h2>
+    <p>It is very simple and quick to create reports in Salesforce. First, log in to your Salesforce association group and then click on Reports.</p>
+    <ul>
+        <li><strong>Create New Report folder:</strong> Use this to create a new report folder.</li>
+        <li><strong>New Report button:</strong> Use this to create a new report.</li>
+    </ul>
+
+    <h2>Types of Salesforce Reports</h2>
+    <p>The following are the four types of reports in Salesforce:</p>
+    
+    <div class="cloud-grid">
+        <div class="cloud-card">
+            <h3>1. Tabular Report</h3>
+            <p>Tabular reports are the basic and most simple form of Salesforce reports. They are especially useful in cases when you need to export data. They show data effectively in rows and a tabular form. It is suggested not to use Tabular reports when manipulating data (calculations, totals).</p>
         </div>
+
+        <div class="cloud-card">
+            <h3>2. Summary Report</h3>
+            <p>Summary reports are basically used to show groups of data. They are the most commonly used reports. You can group data in the name of different accounts and perform calculations (total, averages, max, min). Grouping is mostly done in rows.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>3. Matrix Report</h3>
+            <p>Matrix reports show data in rows as well as columns. They are complex and used specifically to display large amounts of complex data. Unlike Summary reports (rows only), Matrix reports group data in both rows and columns.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>4. Joined Report</h3>
+            <p>By using Joined reports, you can create two separate reports and compare their individual data.</p>
+        </div>
+    </div>
+
+    <h2>Steps to Create New Salesforce Reports</h2>
+    <ol>
+        <li>Click on the <strong>Reports</strong> tab and then click on the <strong>New Report</strong> button.</li>
+        <li>Select the report type and click on <strong>Continue</strong>.</li>
+        <li>Customize your report as needed.</li>
+        <li>Click on <strong>Save</strong> when your report is created.</li>
+        <li>Fill in the <strong>Report Name</strong> and click <strong>Save</strong>.</li>
+    </ol>
+    <p><em>Note: Remember to fill in the compulsory fields before saving the report. Report Name is a compulsory field.</em></p>
+
+    <h2>Report Creation Areas in Detail</h2>
+    
+    <h3>Fields</h3>
+    <p>The Fields section shows all the fields related to the object. For grouping the fields, the buttons to the right of Fields are used:</p>
+    <ul>
+        <li><strong>All:</strong> Displays all the fields.</li>
+        <li><strong>a:</strong> Displays the text fields.</li>
+        <li><strong>#:</strong> Displays the numeric fields.</li>
+    </ul>
+
+    <h3>Filters</h3>
+    <p>The Filters section is used when you wish to filter the reports and view only the required data. The filters available depend on the fields set up by the administrator.</p>
+
+    <h3>Preview</h3>
+    <p>Preview allows you to get a preview of the reports as per the given criteria. If you wish to view how the object data looks in tabular format, you can select the Tabular option. If you wish to view a report in the matrix format, select Matrix Report.</p>
+
+    <h2>Creating a Dashboard in Salesforce</h2>
+    <ol>
+        <li>To create a dashboard, go to the <strong>Dashboard</strong> tab and select <strong>New Dashboard</strong>.</li>
+        <li>Enter the Dashboard name and click <strong>Create</strong>. You can select the Folder you want the Dashboard to be in.</li>
+        <li><strong>Note:</strong> If you wish to create a dashboard in Tabular format, you need to apply Raw Limit and Dashboard Settings to the report.</li>
+        <li>Go to <strong>Components</strong>.</li>
+        <li>Click on the report you want to use, and click on <strong>Select</strong>.</li>
+        <li>Select how you want your data to display and click <strong>Add</strong>.</li>
+        <li>Your report is added to the Dashboard. You can repeat the process to add other reports.</li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>Salesforce Reports and Dashboards form an integral part of every business strategy. They are required for getting insights for forecasting and developing better business strategies. Hence, learning to create interactive dashboards and insightful reports is very important.</p>
+</div>
 
         <!-- TAB 15: GOVERNOR LIMITS -->
         <div class="content-section">
@@ -1803,6 +1879,7 @@
 
 </body>
 </html>
+
 
 
 
