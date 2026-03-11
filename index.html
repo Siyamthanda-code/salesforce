@@ -1533,12 +1533,136 @@
     <p>This in-depth blog about AppExchange covers how it works, how to create and edit an AppExchange listing, install AppExchange applications, how to create and publish a Salesforce AppExchange app, and how to price an AppExchange app.</p>
 </div>
 
-        <!-- TAB 12: CUSTOM FIELDS -->
-        <div class="content-section">
-            <h1>Creating Custom Fields</h1>
-            <p>Custom fields allow you to capture specific data points on objects.</p>
-            <p>Navigate to: Object Manager > [Select Object] > Fields & Relationships > New.</p>
-        </div>
+        <!-- TAB 13: OBJECTS TUTORIAL (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Salesforce Objects Tutorial</h1>
+    <p>Salesforce Objects are database tables that allow you to store data specific to an organization.</p>
+    
+    <p>Salesforce objects are of two types:</p>
+    <ul>
+        <li><strong>Standard Objects:</strong> Standard objects are the kind of objects that are provided by salesforce.com such as users, contracts, reports, dashboards, etc.</li>
+        <li><strong>Custom Objects:</strong> Custom objects are created by users. They collect information that is unique and essential to their organization. They are the heart of any application and provide a structure for sharing data.</li>
+    </ul>
+
+    <h2>Properties of Custom Objects</h2>
+    <ul>
+        <li>Custom fields</li>
+        <li>Relationship to another object</li>
+        <li>Page layouts</li>
+        <li>Custom user interface tab</li>
+    </ul>
+
+    <h2>Custom Object Behavior</h2>
+    <p>You can extend your organization’s data by defining custom objects using the user interface. Custom objects are nothing but custom database tables that enable you to store unique information or data about your organization. Custom objects behave and relate to objects like standard objects. Custom objects can also have many-to-many relationships with other custom or standard objects.</p>
+
+    <h2>External Objects</h2>
+    <p>External objects are very similar to custom objects. The primary difference is that external objects record data outside of your Salesforce organization. External objects are available using Salesforce Connect and Files Connect.</p>
+
+    <h2>Big Objects</h2>
+    <p>Big Objects are objects that store and manage large amounts of data on the Salesforce platform. You can archive data from other objects or plugin large datasets from outside systems into big objects. They deliver consistent performance, regardless of the record count. There exist two types: <strong>standard big objects</strong> and <strong>custom big objects</strong>.</p>
+
+    <h2>Relationships Among Objects</h2>
+    <p>Relationships help in associating two objects. These objects can be Standard or Custom objects. You can define different types of relationships by creating custom relationship fields on an object. Differences can be in how relationships handle data deletion, security, record ownership, and required fields in page layouts.</p>
+
+    <h2>Creating a Salesforce Custom Object</h2>
+    <ol>
+        <li><strong>Setup:</strong> Login to your Salesforce account and click on <strong>Setup</strong>.</li>
+        <li><strong>Object Manager:</strong> Click on the <strong>Object Manager</strong> tab.</li>
+        <li><strong>Create:</strong> Click on the Create drop-down button and then click on <strong>Custom Object</strong>.</li>
+        <li><strong>Details:</strong> Fill in the details like Label, Object Name information, and Record Name (Text or Auto-number).</li>
+    </ol>
+
+    <h3>Optional Features</h3>
+    <ul>
+        <li><strong>Allow Reports:</strong> If you tick this checkbox, then these objects will be available to make Salesforce reports.</li>
+        <li><strong>Allow Activities:</strong> If you tick this checkbox, you can make activities on this object.</li>
+        <li><strong>Track Field History:</strong> When you tick this, you can track up to 20 fields for a single object.</li>
+    </ul>
+
+    <h3>Deployment Modes</h3>
+    <ul>
+        <li><strong>In Development:</strong> The object will remain in development mode.</li>
+        <li><strong>Deployed:</strong> The object will be available for deployment.</li>
+    </ul>
+    
+    <h3>Tab Creation Options</h3>
+    <p>The following options are available only when creating a custom object for the first time:</p>
+    <ul>
+        <li>Add notes and attachments related list</li>
+        <li>Launch a new custom tab wizard after saving this custom object</li>
+    </ul>
+    <p>If you choose not to select “Launch new custom tab wizard,” you will need to manually create a tab. If selected, the tab is created automatically.</p>
+
+    <h2>Tabs in Salesforce</h2>
+    <p>Tabs are a user interface used to build records for objects and to view the records in the objects. There are three types of tabs:</p>
+    <ol>
+        <li>Custom object tab</li>
+        <li>Web tab</li>
+        <li>Visualforce tab</li>
+    </ol>
+    <p><strong>How to Create:</strong> Go to <strong>Setup > Build > Create > Tab</strong>. Click on New Tab.</p>
+
+    <h2>Salesforce Standard Objects</h2>
+    <p>Salesforce standard objects are those objects that come with Salesforce. Some of them are Contact, Account, Lead, Opportunity, etc. Here are common standard objects:</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Object</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>AcceptedEventRelation</strong></td>
+                <td>Represents participants with the status “Accepted” for an event.</td>
+            </tr>
+            <tr>
+                <td><strong>Account</strong></td>
+                <td>Represents an individual account (entity, organization, or person) involved with your business.</td>
+            </tr>
+            <tr>
+                <td><strong>ActionCadence</strong></td>
+                <td>Represents the definition of a sales cadence (API version 45.0+).</td>
+            </tr>
+            <tr>
+                <td><strong>ActionLink</strong></td>
+                <td>A button on a feed element that directs users to another web page or calls an API.</td>
+            </tr>
+            <tr>
+                <td><strong>Workload</strong></td>
+                <td>Represents time series for work item volume and average handling time (API version 49.0+).</td>
+            </tr>
+            <tr>
+                <td><strong>WorkOrder</strong></td>
+                <td>Represents the field service work to be performed for a customer.</td>
+            </tr>
+            <tr>
+                <td><strong>WorkGoal</strong></td>
+                <td>Represents components of a goal, including metrics and descriptions (Discontinued in API 35.0).</td>
+            </tr>
+            <tr>
+                <td><strong>WorkStep</strong></td>
+                <td>A step in a work plan (API version 52.0+).</td>
+            </tr>
+            <tr>
+                <td><strong>WorkThanks</strong></td>
+                <td>Represents the source and message of a thanks post.</td>
+            </tr>
+            <tr>
+                <td><strong>WorkType</strong></td>
+                <td>A template applied to work orders or work order line items.</td>
+            </tr>
+            <tr>
+                <td><strong>WorkforceCapacity</strong></td>
+                <td>Represents time series for actual or forecasted workforce allocation (API version 51.0+).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Conclusion</h2>
+    <p>In this tutorial, you learned about Salesforce objects, both standard and custom. You also understood how to create a custom object, learned some common Salesforce Standard objects, and Tabs.</p>
+</div>
 
         <!-- TAB 13: REPORTS & DASHBOARDS -->
         <div class="content-section">
@@ -1644,6 +1768,7 @@
 
 </body>
 </html>
+
 
 
 
