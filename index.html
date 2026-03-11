@@ -1847,12 +1847,130 @@
     <p>A wrapper class is a proven enhancement of growth for Salesforce Developers with its wider range of solutions. Whenever you want to compare custom objects or need to add more functionalities, you can try using wrapper classes. You can also add many fields within an object whenever required and maximize the usability of an application.</p>
 </div>
 
-        <!-- TAB 16: PROCESS BUILDER -->
-        <div class="content-section">
-            <h1>Process Builder</h1>
-            <p>Process Builder is a point-and-click tool that lets you easily automate if/then business processes.</p>
-            <p>It is more powerful than Workflow Rules and allows for multiple actions in a single process.</p>
-        </div>
+        <!-- TAB 17: GOVERNOR LIMITS (UPDATED) -->
+<div class="content-section">
+    <h1>Governor Limits in Salesforce</h1>
+    <p>Governor limits in Salesforce are used to ensure the effective use of resources on the Force.com multi-tenant platform. In order to execute the code efficiently, Salesforce.com sets some limits.</p>
+
+    <h2>What are Governor Limits in Salesforce?</h2>
+    <p>To ensure that no one acquires resources from others, Force.com sets many restrictions that limit normal code execution. Salesforce has to do this because of its multi-tenant architecture, where all organizations and customers share a single resource. If one of the governor’s limits is not met, an error will be raised and the program will stop. Therefore, it is important to ensure that our code is scalable and does not violate governor limits.</p>
+
+    <h2>Types of Salesforce Governor Limits</h2>
+    <ul>
+        <li>Per-transaction Certified Managed Package Limits</li>
+        <li>Static Apex Limits</li>
+        <li>Per-transaction Apex Limits</li>
+        <li>Lightning Platform Apex Limits</li>
+        <li>Size-specific Apex Limits</li>
+    </ul>
+
+    <h2>Major Governor Limits</h2>
+    <p>Here is a cheat sheet overviewing the essential limits:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Overview</th>
+                <th>Governor Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Total number of SOSL queries issued</td><td>20</td></tr>
+            <tr><td>Total number of DML statements issued per transaction</td><td>150</td></tr>
+            <tr><td>Total number of records retrieved by a single SOSL query</td><td>2,000</td></tr>
+            <tr><td>Total number of records retrieved by SOQL queries</td><td>50,000</td></tr>
+            <tr><td>Total number of records retrieved by Database.getQueryLocator</td><td>10,000</td></tr>
+            <tr><td>Total Heap Size</td><td>6 MB (Sync) / 12 MB (Async)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Per-transaction Apex Limits</h2>
+    <p>These limits count each Apex transaction. For Batch Apex, these limits are reset for each batch of records.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Synchronous Limit</th>
+                <th>Asynchronous Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Total SOQL queries issued</td><td>100</td><td>200</td></tr>
+            <tr><td>Total records retrieved by SOQL</td><td>50,000</td><td>50,000</td></tr>
+            <tr><td>Total SOSL queries issued</td><td>20</td><td>20</td></tr>
+            <tr><td>Total DML statements issued</td><td>150</td><td>150</td></tr>
+            <tr><td>Total callouts in a transaction</td><td>100</td><td>100</td></tr>
+            <tr><td>Total Heap Size</td><td>6 MB</td><td>12 MB</td></tr>
+            <tr><td>Maximum CPU time</td><td>10,000 ms</td><td>60,000 ms</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Static Apex Limits</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Default timeout for callouts</td><td>10 seconds</td></tr>
+            <tr><td>Maximum size of callout request/response</td><td>6 MB (Sync) / 12 MB (Async)</td></tr>
+            <tr><td>Maximum SOQL query runtime</td><td>120 seconds</td></tr>
+            <tr><td>Apex trigger batch size</td><td>200</td></tr>
+            <tr><td>Maximum records returned for Batch Apex query</td><td>50 million</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Lightning Platform Apex Limits</h2>
+    <p>These limits are managed by the Lightning platform and do not apply to Apex transactions individually.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Maximum async Apex method executions per 24 hours</td><td>250,000 or 200 x User Licenses</td></tr>
+            <tr><td>Maximum number of Apex classes scheduled concurrently</td><td>100 (5 in Developer Edition)</td></tr>
+            <tr><td>Maximum number of Batch Apex jobs queued or active</td><td>5</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Size-specific Apex Limits</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Maximum number of characters in a class</td><td>1 million</td></tr>
+            <tr><td>Maximum amount of code used by all Apex code in org</td><td>6 MB</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Difference Between Synchronous and Asynchronous Execution</h2>
+    <ul>
+        <li><strong>Synchronous:</strong> All code gets executed at once.</li>
+        <li><strong>Asynchronous:</strong> A part of the process gets executed in the background as a separate thread. Asynchronous execution has bigger governor limits.</li>
+    </ul>
+
+    <h2>How to Avoid Salesforce Governor Limits</h2>
+    <p>As a developer, ensure code is scalable. Follow this process:</p>
+    <ul>
+        <li>Do not have DML statements or SOQL queries in our FOR loop.</li>
+        <li>Try not to use SOQL or DML operations in the loop.</li>
+        <li>Try to bulkify the code and helper methods.</li>
+        <li>Query large data sets.</li>
+        <li>Use Batch Apex if we want to process 50,000 records.</li>
+        <li>Streamline various triggers on the same object.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>We hope you now understand how the governor limits work in Apex and how to avoid them. When working on code, it is crucial to be aware of the limits Salesforce has set.</p>
+</div>
 
         <!-- TAB 17: WORKBENCH -->
         <div class="content-section">
@@ -1930,6 +2048,7 @@
 
 </body>
 </html>
+
 
 
 
