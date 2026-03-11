@@ -1972,7 +1972,7 @@
     <p>We hope you now understand how the governor limits work in Apex and how to avoid them. When working on code, it is crucial to be aware of the limits Salesforce has set.</p>
 </div>
 
-        <!-- TAB 18: PROCESS BUILDER (UPDATED) -->
+       <!-- TAB 18: PROCESS BUILDER (COMPLETE VERSION) -->
 <div class="content-section">
     <h1>Process Builder in Salesforce</h1>
     <p>Salesforce Process Builder is a powerful automation tool that enables you to define the sequence of actions or evaluate criteria for a record. It is a must-have tool for Salesforce developers.</p>
@@ -1989,13 +1989,6 @@
         <li><strong>Calling Apex Code:</strong> Invoke Apex code that you have already written.</li>
         <li><strong>Invoking Another Process:</strong> Invoke another process from the current one.</li>
     </ol>
-
-    <h3>Types of Processes</h3>
-    <ul>
-        <li><strong>Record Change:</strong> Starts whenever a record is created or updated.</li>
-        <li><strong>Event Process:</strong> Starts whenever an event message is received.</li>
-        <li><strong>Invocable Process:</strong> Starts whenever another process requests it.</li>
-    </ul>
 
     <h2>Components of a Process</h2>
     <p>There are three major components: Trigger, Criteria, and Actions.</p>
@@ -2016,16 +2009,29 @@
     </ul>
 
     <h3>3. Actions</h3>
-    <p>Actions determine what the process should do. Actions are executed immediately when criteria evaluate to true, or at a scheduled time.</p>
+    <p>Actions determine what the process should do. When a criteria node evaluates to true, the process executes the associated actions or waits to execute them at a scheduled time.</p>
+    <ul>
+        <li><strong>Immediate Actions:</strong> As soon as criteria are evaluated as true, the action is executed immediately.</li>
+        <li><strong>Scheduled Actions:</strong> Executed at a specified time (e.g., 8 days before close date). Salesforce re-evaluates criteria before executing scheduled actions.</li>
+    </ul>
+
+    <h2>Process Types</h2>
+    <p>Process Builder supports different process types for automation:</p>
+    <ul>
+        <li><strong>Record Change:</strong> Starts the process when a record is created or edited.</li>
+        <li><strong>Invocable:</strong> The process is started when called by another process.</li>
+        <li><strong>Platform Event:</strong> The process starts when a platform event message is received.</li>
+    </ul>
 
     <h2>Why use Salesforce Process Builder?</h2>
-    <p>Process Builder is used for automating business processes without code. It uses visual representations. Key benefits include:</p>
+    <p>Process Builder is used for automating business processes without code. Key benefits include:</p>
     <ul>
         <li>Visual breakdown lets you know what to expect at a glance.</li>
         <li>Applications are developed three times faster and at half the cost.</li>
-        <li>Can combine multiple workflows into a single process.</li>
+        <li>Can combine multiple workflows into a single process with a chain of if-then statements.</li>
         <li>Can update child records.</li>
         <li>Can notify both Chatter groups and email alerts.</li>
+        <li>Multiple actions can be associated with each criterion.</li>
     </ul>
 
     <h2>Process Builder vs Workflow Rules</h2>
@@ -2050,8 +2056,8 @@
             </tr>
             <tr>
                 <td>Workflow Design</td>
-                <td>User-friendly visual design</td>
-                <td>More difficult to understand</td>
+                <td>User-friendly visual design engine</td>
+                <td>More difficult to understand and refine</td>
             </tr>
             <tr>
                 <td>Skills Required</td>
@@ -2060,8 +2066,13 @@
             </tr>
             <tr>
                 <td>Deployment</td>
-                <td>One-click provisioning</td>
-                <td>Significant effort required</td>
+                <td>One-click provisioning to production</td>
+                <td>Significant level of effort to deploy</td>
+            </tr>
+            <tr>
+                <td>Process Monitoring</td>
+                <td>Visual monitoring of status</td>
+                <td>No visual interface for monitoring</td>
             </tr>
         </tbody>
     </table>
@@ -2069,17 +2080,23 @@
     <h2>Steps to Create a Process Builder</h2>
     <p>Scenario: Create an order record when the opportunity is Closed Won and the amount is US$5 million.</p>
     <ol>
-        <li><strong>Setup:</strong> Go to Setup and search for <strong>Process Builder</strong>. Click <strong>New</strong>.</li>
-        <li><strong>Define Process:</strong> Give your process a name and description. Select "A record changes" to start the process. Click Save.</li>
+        <li><strong>Setup:</strong> Go to Setup and search for <strong>Process Builder</strong>. Click on <strong>New</strong>.</li>
+        <li><strong>Define Process:</strong> Enter Process Name (e.g., "Demo") and Description. Select "A record changes" for how to start the process. Click Save.</li>
         <li><strong>Add Object:</strong> Click Add Object. Select "Opportunity" and choose "when a record is created or edited". Click Save.</li>
-        <li><strong>Add Criteria:</strong> Click Add Criteria. Enter a name (e.g., "Stage=Closed Won?"). Choose "Conditions are met".</li>
-        <li><strong>Set Conditions:</strong> Add Field (Opportunity > Stage), Operator (Equals), Type (Picklist), and Value (Closed Won).</li>
-        <li><strong>Add Action:</strong> Click Add Action. Configure the action to create the Order record.</li>
-        <li><strong>Save & Activate:</strong> Save the process and click Activate to enable it.</li>
+        <li><strong>Add Criteria:</strong> Click Add Criteria. Enter Criteria Name (e.g., "Stage=Closed Won? And Amount>5M"). Choose "Conditions are met".</li>
+        <li><strong>Set Conditions:</strong> 
+            <ul>
+                <li>Row 1: Field (Opportunity > Stage), Operator (Equals), Type (Picklist), Value (Closed Won).</li>
+                <li>Row 2: Field (Opportunity > Amount), Operator (Greater Than), Value (5000000).</li>
+            </ul>
+        </li>
+        <li><strong>Save Criteria:</strong> Click Save after setting conditions.</li>
+        <li><strong>Add Action:</strong> Click Add Action in the Immediate Action box. Choose Action Type (e.g., Create a Record), Name the action, and set field values for the new Order record.</li>
+        <li><strong>Activate:</strong> Click Save, then click Activate to enable the process.</li>
     </ol>
 
     <h2>Conclusion</h2>
-    <p>Salesforce Process Builder is a powerful tool for automating business processes. It is an important part of the Salesforce automation bundle.</p>
+    <p>Salesforce Process Builder is a powerful tool that can be used to automate business processes. It is an important part of the entire Salesforce automation bundle.</p>
 </div>
 
         <!-- TAB 18: BATCH APEX -->
@@ -2151,6 +2168,7 @@
 
 </body>
 </html>
+
 
 
 
