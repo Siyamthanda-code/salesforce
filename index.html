@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salesforce Dictionary</title>
+    <title>Salesforce Handbook</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -1789,12 +1789,63 @@
     <p>Salesforce Reports and Dashboards form an integral part of every business strategy. They are required for getting insights for forecasting and developing better business strategies. Hence, learning to create interactive dashboards and insightful reports is very important.</p>
 </div>
 
-        <!-- TAB 15: GOVERNOR LIMITS -->
-        <div class="content-section">
-            <h1>Governor Limits in Salesforce</h1>
-            <p>Because Salesforce is a multi-tenant environment, it enforces limits to ensure no single organization monopolizes shared resources.</p>
-            <p>Examples include limits on SOQL query rows (50,000), CPU time, and heap size.</p>
-        </div>
+        <!-- TAB 16: WRAPPER CLASS (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Wrapper Class in Salesforce</h1>
+    <p>A wrapper class is nothing but a collection of different Salesforce data types. In Salesforce, you can combine multiple data types and utilize them for various purposes. For example, there is a wrapper class that can access the account records and display them in an in-page block table. You have an option of a checkbox, and you can associate multiple serial numbers to display the number of records.</p>
+    
+    <p>When elucidating the architecture of Salesforce, you can see that it is somewhat similar to a database wherein the records are defined as rows, the fields are determined as columns, and the objects are defined as tables. Having different collections of classes assigned to facilitate a successful development process, Salesforce possesses the MVC architecture.</p>
+
+    <h2>Wrapper Class in Salesforce as a Solution</h2>
+    <p>A wrapper class is used mainly to wrap data collected from the present objects to a new object. A sObject is defined as a distinct type that doesn’t include a database or any relevant field; it doesn’t have any API page but is definitely a valid object.</p>
+    <p>In other orders, a wrapper class is a container class; it is a data structure and an abstract data type that contains various objects and their members together. A wrapper class is also called a custom object which is determined by a developer with a particular set of properties. If you want to wrap various data objects, there is no better option than wrapper classes in Salesforce.</p>
+
+    <h2>Wrapper Class Use Case in LWC</h2>
+    <p>Following is a wrapper class use case in LWC:</p>
+    <ol>
+        <li>Display the list of Open Cases in the form of DataTable.</li>
+        <li>Ensure that the user is given the ability to select multiple cases at a time.</li>
+        <li>Create a “Close Selected Cases” button.</li>
+        <li>The ‘Close Selected Cases’ button should close all the selected cases once clicked.</li>
+    </ol>
+
+    <h2>Advantages of a Wrapper Class in Salesforce</h2>
+    <ul>
+        <li>When considering the JSON structure, the wrapper class structure is comparable to the data visualization technique on a particular web page.</li>
+        <li>There isn’t any requirement for passing the map structure for browsing elements or for managing the relationship between objects.</li>
+        <li>If you want to pass a sObject, there isn’t any penalty for the same, and it can also be extendable to the class constructors.</li>
+        <li>Data can be organized perfectly when it is nested.</li>
+        <li>A wrapper class and a container class can be kept together, but it is better if they are stored separately. When kept independently, it is easy to maintain and reuse them, preventing code duplication.</li>
+    </ul>
+    <p>Therefore, a wrapper class is used to construct a new object within the Apex code which can consolidate a set of fields required at runtime or various fields from different objects. This provides extra control and flexibility.</p>
+
+    <h2>Wrapper Class as an Everyday Tool in Salesforce</h2>
+    <p>All Salesforce Developers use wrapper classes on a daily basis. This is normal in Visualforce wherein queries are performed on the data before presenting it to the user.</p>
+    <p>A few activities included are:</p>
+    <ul>
+        <li>Connecting values concurrently for various fields of an object using a mapping table.</li>
+        <li>Presenting various threads of data mutually in a single list.</li>
+        <li>Enhancing a data object by extracting the data from another object.</li>
+    </ul>
+    <p>A wrapper class doesn’t have an inner class determined by default, yet the practice of having an inner class can be more efficient and simple in Salesforce. A wrapper class is used similarly as unions, structures, or algebraic types for any other class.</p>
+
+    <h2>MVC Architecture</h2>
+    <p>The MVC (Model View Controller) architecture in Salesforce is a software pattern that separates the representation of information from the user’s interaction with it. Salesforce UI has an MVC model, and here Salesforce metadata is stored to view it as XML later.</p>
+    
+    <p>The MVC architecture contains the following three modules:</p>
+    <ul>
+        <li><strong>Model (Database Layer):</strong> The schema and data that Salesforce uses to represent the system completely. sObjects can be considered the model as every entity is mapped to some sObject.</li>
+        <li><strong>View (UI Layer):</strong> It is how the schema and data are represented. Visualforce is used to present the data to the users.</li>
+        <li><strong>Controller (Business Logic Layer):</strong> A controller is basically an Apex Class extended to the controller; data is relinquished to accessible models first to view the elements.</li>
+    </ul>
+
+    <h3>Handling Nested Structures</h3>
+    <p>Developers are limited to a data structure of a particular object type while the relationship between these data structures is necessary. Controllers are responsible for modeling and viewing objects, components, and pages.</p>
+    <p>As seen in standard architecture, a single contact can have many orders wherein each order can have various order lines. This kind of nested structure is exemplified through a JSON or NoSQL database.</p>
+
+    <h2>The Verdict</h2>
+    <p>A wrapper class is a proven enhancement of growth for Salesforce Developers with its wider range of solutions. Whenever you want to compare custom objects or need to add more functionalities, you can try using wrapper classes. You can also add many fields within an object whenever required and maximize the usability of an application.</p>
+</div>
 
         <!-- TAB 16: PROCESS BUILDER -->
         <div class="content-section">
@@ -1879,6 +1930,7 @@
 
 </body>
 </html>
+
 
 
 
