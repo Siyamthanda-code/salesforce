@@ -990,14 +990,89 @@
     <p>As we have come to the end of this Salesforce CRM tutorial, hopefully, you have an in-depth understanding of Salesforce CRM.</p>
 </div>
 
-        <!-- TAB 7: DEVELOPER ACCOUNT -->
-        <div class="content-section">
-            <h1>Creating a Salesforce Developer Account</h1>
-            <p>Creating a free Developer Edition (DE) account is the first step for learning Salesforce.</p>
-            <p>1. Go to developer.salesforce.com</p>
-            <p>2. Click Sign Up.</p>
-            <p>3. Fill in your details and verify your email.</p>
+       <!-- TAB 8: ARCHITECTURE (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Salesforce Architecture – A Deep Dive</h1>
+    <p>By now, you would have understood that you can use Salesforce to deliver a highly customizable application to your customers. In order to understand how Salesforce works, it is important to understand the architecture of Salesforce.</p>
+    
+    <p>First, let’s see some important points to get introduced to Salesforce:</p>
+    <ul>
+        <li>Salesforce is a cloud company, and it offers a trusted and multi-tenant cloud.</li>
+        <li>The Salesforce platform is the foundation of Salesforce services. It is powered by metadata and is made up of several different parts, such as data services, Artificial Intelligence, and robust APIs for development.</li>
+        <li>All apps sit on top of the Salesforce platform. Its pre-built offerings, namely, Salesforce Marketing Cloud and Sales Cloud, along with apps you build using the platform, have consistent, powerful functionality.</li>
+        <li>Everything is integrated with Salesforce. The platform technologies such as Salesforce Einstein predictive intelligence and the lightning framework are built according to the user’s convenience.</li>
+    </ul>
+
+    <h2>Core Architecture of Salesforce</h2>
+    <p>Think about the Salesforce architecture as a series of layers sitting on top of each other. Before discussing the Salesforce architecture, let’s first go through the terminology:</p>
+
+    <h2>Terminologies Used in Salesforce Architecture</h2>
+    
+    <div class="cloud-grid">
+        <div class="cloud-card">
+            <h3>App</h3>
+            <p>All metadata elements such as objects, Visualforce pages, classes, etc. are independent of an app. An app simply helps you cluster things visually. You can have similar tabs and VF Pages in multiple apps.</p>
         </div>
+
+        <div class="cloud-card">
+            <h3>Instance</h3>
+            <p>An instance of Salesforce is the particular configuration that you see when you log in. A Salesforce instance basically indicates server details for a particular Salesforce organization on which it lives. It is possible for many Salesforce instances to live on one server.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>Superpod</h3>
+            <p>Superpod is the arrangement of frameworks and stack balancers, including outbound intermediary servers, system and capacity foundations, mail servers, SAN texture, and various other frameworks supporting different instances.</p>
+        </div>
+
+        <div class="cloud-card">
+            <h3>Org (Organization)</h3>
+            <p>It is a single consumer of the Salesforce application. Every trial that begins on www.salesforce.com or developer.force.com produces a new org. An org is incredibly adjustable and has very clear security and sharing settings.</p>
+        </div>
+    </div>
+
+    <h3>Sandbox</h3>
+    <p>Whenever a sandbox is created, Salesforce copies the metadata from your production org to the sandbox org. By doing so, you can create multiple copies of your production org in separate environments.</p>
+    <p>There are four kinds of Salesforce sandbox:</p>
+    <ol>
+        <li>Developer Sandbox</li>
+        <li>Developer Pro</li>
+        <li>Partial Copy</li>
+        <li>Full Sandbox</li>
+    </ol>
+
+    <h2>Different Layers of Salesforce Architecture</h2>
+
+    <h3>1. Multi-tenant in Salesforce Architecture</h3>
+    <p>In Salesforce, all data is stored in a single database schema for all its customers.</p>
+    <ul>
+        <li>It is economical because resources and maintenance are shared.</li>
+        <li>There can be a single instance of a software server with multiple tenants.</li>
+        <li>The provider has to update only one application, and the changes will get updated for all clients.</li>
+    </ul>
+    <p>In a multi-tenant architecture, there is one common application serviced to multiple clients. The developer can create a Salesforce Application, upload it onto the cloud, and share it with multiple clients. The major advantage is that it becomes cost-effective. The development and maintenance costs can be shared at once.</p>
+
+    <h3>2. Metadata in Salesforce Architecture</h3>
+    <p>Salesforce platform uses a metadata-driven development model.</p>
+    <ul>
+        <li>Developers need to concentrate only on building applications.</li>
+        <li>Functionalities of an app is defined as metadata in the Salesforce database.</li>
+        <li>This increases developers’ productivity.</li>
+    </ul>
+    <p>The issues of security get sorted with this particular architecture since here all data is stored on different levels, i.e., data above data. All the data is stored in shared databases; the metadata points to one particular clients’ data in a shared database.</p>
+    <p>Consider three clients, A, B, and C, sharing a single database. These clients will have access to their own metadata from the shared data. This ensures that you don’t get into someone else’s metadata, increasing security.</p>
+
+    <h3>3. CRM and Related Functionality</h3>
+    <p>In its list of features, Salesforce includes all aspects of CRM functionality and also provides features for the creation of apps, integrating analytics, and more.</p>
+
+    <h3>4. Enterprise Ecosystem</h3>
+    <p>The enterprise ecosystem of Salesforce is huge. There are contributions from a large number of partners by creating and maintaining applications in this platform. This ecosystem is created on top of Salesforce’s unique business model that is focused on engagement and collaboration.</p>
+
+    <h3>5. API</h3>
+    <p>A powerful source of APIs is provided by Salesforce. This APIs help in the development and customization of the Salesforce mobile application. These APIs enable diverse bits of programming to interface with each other and trade data. These APIs are comparable. Without knowing many details, you can connect your apps with other apps.</p>
+
+    <h2>Conclusion</h2>
+    <p>Salesforce design isn’t just a random series of trial-and-error experiments. Rather, each and every feature of its design has been planned and placed precisely.</p>
+</div>
 
         <!-- TAB 8: DATA TYPES -->
         <div class="content-section">
@@ -1145,6 +1220,7 @@
 
 </body>
 </html>
+
 
 
 
