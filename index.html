@@ -1168,12 +1168,187 @@
     <p>In this section of the Salesforce tutorial, you learned how to create a Salesforce Developer login account. Now, you can go ahead and create a Salesforce login and start exploring and creating new things according to your needs.</p>
 </div>
 
-        <!-- TAB 9: CREATING APPLICATION -->
-        <div class="content-section">
-            <h1>Creating a Salesforce Application</h1>
-            <p>An app in Salesforce is a logical container for a set of tabs, objects, and other items that work together to solve a specific business problem.</p>
-            <p>You can create apps using the App Manager in Setup.</p>
-        </div>
+        <!-- TAB 10: DATA TYPES (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Salesforce: Data Types, Field Types, and Components</h1>
+    <p>Salesforce Apex Language is an extremely robust programming language. Therefore, salesforce developer must use specific attributes and values when setting any variables in it. Here you will get all of the details about data types, field types and components used within Salesforce that may help define any variables correctly.</p>
+
+    <h2>Different DataTypes in Salesforce</h2>
+    <p>Apex in Salesforce assigns a data type to all variables and expressions, such as sObject, primitive, or enum. We use these data types as required depending on the condition.</p>
+    <ul>
+        <li><strong>Primitives:</strong> Integer, Double, Long, Date, Datetime, String, ID, or Boolean.</li>
+        <li><strong>sObject:</strong> General or specific objects such as an Account, Contact, or MyCustomObject__c.</li>
+        <li><strong>Collections:</strong>
+            <ul>
+                <li>A list (or array) of primitives, sObjects, user-defined objects, Apex classes created objects, or collections.</li>
+                <li>A set of primitives.</li>
+                <li>A map from a primitive to a primitive, sObject, or collection.</li>
+            </ul>
+        </li>
+        <li><strong>Enum:</strong> A typed list of values.</li>
+        <li><strong>User-defined Objects:</strong> Objects made from Apex classes defined by the user.</li>
+        <li><strong>System Objects:</strong> Objects built with Apex classes provided by the system.</li>
+        <li><strong>Null:</strong> For the null constant.</li>
+    </ul>
+
+    <h3>Data Types in API</h3>
+    <p>There are different data types depending on the circumstances. Here are the five in API:</p>
+    <ol>
+        <li>ID</li>
+        <li>String</li>
+        <li>Boolean</li>
+        <li>Double</li>
+        <li>Varies by type</li>
+    </ol>
+
+    <h2>Variables in Salesforce</h2>
+    <ul>
+        <li>Declaring and initializing local variables with one line, similar to Java, is possible here.</li>
+        <li>If you declare a variable but fail to assign any value for it, its status will become null – in its simplest form, null signifies a lack of any assigned value for a variable specified with primitive type.</li>
+        <li>Variables can be declared at any point in a block and then take on the scope from there. Sub-blocks can’t change the name of a variable that has already been used in a parent block, although parallel blocks may.</li>
+    </ul>
+
+    <h2>Different Salesforce Field Types</h2>
+    <p>Every field within Salesforce has a defined data type. When these fields are created in Salesforce, you are prompted to choose their data type, such as String, TextArea, Number, PickList, etc. It’s important to understand that these fields expect data of a certain type.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Field Type</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Address</strong></td>
+                <td>A compound data type that contains address field data.</td>
+            </tr>
+            <tr>
+                <td><strong>AnyType</strong></td>
+                <td>A polymorphic data type that returns a string, picklist, reference, Boolean, currency, int, double, percent, ID, date, dateTime, URL, or email data depending on the kind of field involved.</td>
+            </tr>
+            <tr>
+                <td><strong>Calculated</strong></td>
+                <td>A field that is defined by a formula.</td>
+            </tr>
+            <tr>
+                <td><strong>Combobox</strong></td>
+                <td>A Combobox, which includes a set of enumerated values and allows the user to specify a value, not on the list.</td>
+            </tr>
+            <tr>
+                <td><strong>Currency</strong></td>
+                <td>Currency values.</td>
+            </tr>
+            <tr>
+                <td><strong>DataCategoryGroupReference</strong></td>
+                <td>Reference to a data category group or a category unique name.</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>Email addresses.</td>
+            </tr>
+            <tr>
+                <td><strong>EncryptedString</strong></td>
+                <td>An encrypted text field that contains any combination of letters/numbers/symbols stored in an encrypted form.</td>
+            </tr>
+            <tr>
+                <td><strong>ID</strong></td>
+                <td>A primary key field for an object.</td>
+            </tr>
+            <tr>
+                <td><strong>JunctionIdList</strong></td>
+                <td>A string array of referenced ID values representing the many-to-many relationship of an underlying junction entity.</td>
+            </tr>
+            <tr>
+                <td><strong>Location</strong></td>
+                <td>A compound data type that contains latitude and longitude values for geolocation fields.</td>
+            </tr>
+            <tr>
+                <td><strong>Masterrecord</strong></td>
+                <td>When records are merged, the ID of the record that is saved (the other records are deleted).</td>
+            </tr>
+            <tr>
+                <td><strong>Multipicklist</strong></td>
+                <td>A multi-select picklist includes a set of enumerated values from which multiple values can be selected.</td>
+            </tr>
+            <tr>
+                <td><strong>Percent</strong></td>
+                <td>Percentage values.</td>
+            </tr>
+            <tr>
+                <td><strong>Phone</strong></td>
+                <td>Phone numbers; values can include alphabetic characters; client applications are responsible for phone number formatting.</td>
+            </tr>
+            <tr>
+                <td><strong>Picklist</strong></td>
+                <td>Picklist includes a set of enumerated values from which one value can be selected.</td>
+            </tr>
+            <tr>
+                <td><strong>Reference</strong></td>
+                <td>Cross-references to a different object; analogous to a foreign key field in SQL.</td>
+            </tr>
+            <tr>
+                <td><strong>Textarea</strong></td>
+                <td>A string that is displayed as a multi-line text field.</td>
+            </tr>
+            <tr>
+                <td><strong>URL</strong></td>
+                <td>URL values; usually, client applications should display these as hyperlinks.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Data Types and Transformation</h2>
+    <p>We can group different field types together with data types. Some of the examples are listed below.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Data Type</th>
+                <th>Field Types</th>
+                <th>Transformation Data Types</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>ID</strong></td>
+                <td>Look up relational, master-detail relationship</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td><strong>String</strong></td>
+                <td>Auto number, email, phone, multi-select picklist, text, text area, long text area, rich text area, data category group reference, and URL</td>
+                <td>String</td>
+            </tr>
+            <tr>
+                <td><strong>Boolean</strong></td>
+                <td>Checkbox</td>
+                <td>Integer</td>
+            </tr>
+            <tr>
+                <td><strong>Double</strong></td>
+                <td>Currency, formula, number, percent, and roll-up summary</td>
+                <td>Decimal</td>
+            </tr>
+            <tr>
+                <td><strong>Varies by type</strong></td>
+                <td>A type must be given when formula fields are added to the user interface. Currency, date, date/time, number, percent, or text are all API data types.</td>
+                <td>String</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Salesforce Components</h2>
+    <ul>
+        <li><strong>TAB Menu:</strong> In this, all tabs are arranged in a row.</li>
+        <li><strong>All TAB Menu:</strong> In this, you can find all the tabs available on salesforce.com.</li>
+        <li><strong>More TAB Menu:</strong> In this, you can find more tabs available on salesforce.com.</li>
+        <li><strong>User Menu:</strong> This is available at the top with a username. By using this component, you can change your profile settings.</li>
+        <li><strong>Sidebar Menu:</strong> In this, there are different sections such as build, monitor, jobs, logs, etc.</li>
+        <li><strong>Application Menu:</strong> It allows shuffling between applications.</li>
+        <li><strong>Search Menu:</strong> It helps search in Salesforce.</li>
+    </ul>
+</div>
 
         <!-- TAB 10: APPEXCHANGE -->
         <div class="content-section">
@@ -1301,6 +1476,7 @@
 
 </body>
 </html>
+
 
 
 
