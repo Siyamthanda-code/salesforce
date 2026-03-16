@@ -2184,12 +2184,163 @@
     <p>Workbench in Salesforce is a powerful and secure data management tool that is of great help to developers. It makes both data management and extraction much easier.</p>
 </div>
 
-        <!-- TAB 19: WORKFLOW -->
-        <div class="content-section">
-            <h1>Workflow in Salesforce</h1>
-            <p>Workflow rules automate standard internal procedures and processes to save time across your organization.</p>
-            <p>They consist of: 1) Criteria (If), 2) Actions (Then).</p>
-        </div>
+        <!-- TAB 20: BATCH APEX (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>What is Batch Apex in Salesforce?</h1>
+    <p>Batch Apex in Salesforce is specially designed for processing large numbers of records. Data is divided into small batches of records and then evaluated. The Batch Class is specifically designed to process bulk data together, having greater governor limits than synchronous code.</p>
+
+    <h2>Advantages of Batch Apex</h2>
+    <ul>
+        <li>Ensures code stays within governor limits during transaction execution.</li>
+        <li>Won't execute following batches until a current batch is successfully executed.</li>
+        <li>Can process a large set of records together regularly.</li>
+        <li>The interface can be scheduled to run batches at different periods.</li>
+        <li>Jobs are invoked programmatically during runtime; can operate on any size of records (max 200 per batch by default).</li>
+    </ul>
+
+    <h2>Why use Batch Apex over Normal Apex?</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Normal Apex</th>
+                <th>Batch Apex</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>SOQL Query Records</td>
+                <td>100 per cycle</td>
+                <td>200 per cycle</td>
+            </tr>
+            <tr>
+                <td>Total Records Retrieved</td>
+                <td>50,000</td>
+                <td>50,000,000</td>
+            </tr>
+            <tr>
+                <td>Heap Size</td>
+                <td>6 MB</td>
+                <td>12 MB</td>
+            </tr>
+            <tr>
+                <td>Error Vulnerability</td>
+                <td>High for bulk records</td>
+                <td>Lower</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Batch Class in Salesforce</h2>
+    <p>When using a Batch Class, the <code>Database.Batchable</code> interface must be implemented. It has three methods:</p>
+    
+    <h3>1. Start Method</h3>
+    <p>Called at the start to collect data. It returns a <code>Database.QueryLocator</code> or an <code>Iterable</code>.</p>
+    <ul>
+        <li><strong>QueryLocator:</strong> Use for simple SOQL queries (e.g., SELECT). Bypasses the 50,000 record retrieval limit (up to 50 million records).</li>
+        <li><strong>Iterable:</strong> Use for complex scope or custom iteration. The 50,000 record retrieval limit applies.</li>
+    </ul>
+
+    <h3>2. Execute Method</h3>
+    <p>Does the actual processing for each batch separately. Called for each batch of records passed to it.</p>
+
+    <h3>3. Finish Method</h3>
+    <p>Called at the end. Responsible for post-processing operations like sending confirmation emails.</p>
+
+    <h2>Example: Creating an Apex Batch Class</h2>
+    <p>The following example updates the account name by adding the keyword 'Updated'.</p>
+    <pre><code>global class batchAccountUpdate implements Database.Batchable&lt;sObject&gt; {
+    
+    // Start Method
+    global Database.QueryLocator start(Database.BatchableContext BC) {
+        String query = 'SELECT Id, Name FROM Account';
+        return Database.getQueryLocator(query);
+    }
+
+    // Execute method
+    global void execute(Database.BatchableContext BC, List&lt;Account&gt; scope) {
+        for(Account a : scope) {
+            a.Name = a.Name + ' Updated';
+        }
+        update scope;
+    }
+
+    // Finish Method
+    global void finish(Database.BatchableContext BC) {
+        // Post-processing logic here
+    }
+}</code></pre>
+
+    <h2>How to Execute Batch Class</h2>
+    <p>To execute the Batch Class, use the Developer Console or Anonymous Apex:</p>
+    <pre><code>batchAccountUpdate b = new batchAccountUpdate();
+database.executeBatch(b);</code></pre>
+
+    <h2>Using Database.executeBatch Method</h2>
+    <p>The <code>Database.executeBatch</code> method takes two parameters:</p>
+    <ol>
+        <li>An instance of a class implementing the <code>Database.Batchable</code> interface.</li>
+        <li>An optional <strong>scope</strong> parameter (number of records per batch). 
+            <ul>
+                <li>Max scope for QueryLocator is <strong>2,000</strong>.</li>
+                <li>If scope is not specified, Salesforce defaults to <strong>200</strong>.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Holding Batch Jobs in the Apex Flex Queue</h2>
+    <ul>
+        <li>Up to <strong>100 batch jobs</strong> can be submitted to the Apex Flex Queue with status <em>Holding</em>.</li>
+        <li>If the queue is full, <code>Database.executeBatch</code> throws a <code>LimitException</code>.</li>
+        <li>Jobs in the Flex Queue are held until system resources are available.</li>
+    </ul>
+
+    <h2>Using Callouts in Batch Apex</h2>
+    <p>To use callouts (HTTP requests or Web services) in Batch Apex, the class must implement <code>Database.AllowsCallouts</code>.</p>
+    <pre><code>global class SearchAndReplace implements Database.Batchable&lt;sObject&gt;, Database.AllowsCallouts {
+    // Implementation
+}</code></pre>
+
+    <h2>Batch Class Schedule in Salesforce</h2>
+    <p>You can schedule Batch Apex using the Schedulable interface or <code>System.scheduleBatch</code>.</p>
+
+    <h3>Using Schedulable Interface</h3>
+    <pre><code>global class apexScheduler implements Schedulable {
+    global void execute(SchedulableContext sc) {
+        batchAccountUpdate b = new batchAccountUpdate();
+        database.executeBatch(b);
+    }
+}</code></pre>
+    <p>Save the class, then go to <strong>Setup > Apex Classes > Schedule Apex</strong> to set the execution time.</p>
+
+    <h3>Using System.scheduleBatch Method</h3>
+    <p>Schedules a batch job to run once at a future time.</p>
+    <pre><code>ID batchProcessId = System.scheduleBatch(new batchAccountUpdate(), 'Job Name', 60);</code></pre>
+    <p>Parameters: Batchable instance, Job Name, Minutes delay, and optional Scope size.</p>
+
+    <h2>Batch Apex Limitations</h2>
+    <ul>
+        <li>Only <strong>5 batch jobs</strong> can be queued or active concurrently.</li>
+        <li>Maximum <strong>100 holding batch jobs</strong> in the Apex Flex Queue.</li>
+        <li>Maximum <strong>50 million records</strong> can be returned to the QueryLocator object.</li>
+        <li>Maximum scope parameter value for <code>executeBatch</code> is <strong>2,000</strong> (for QueryLocator).</li>
+        <li>Each execution is a discrete transaction; governor limits are reset for each transaction.</li>
+        <li>Start, execute, and finish methods can use up to <strong>100 callouts</strong> each.</li>
+        <li>Using <code>FOR UPDATE</code> (locking) in SOQL queries is not applicable in the start method.</li>
+    </ul>
+
+    <h2>Best Practices in Batch Apex</h2>
+    <ul>
+        <li>Use <code>Database.Stateful</code> if instance member variables need to be shared across transactions.</li>
+        <li>Methods declared as <code>future</code> aren’t allowed in classes that implement <code>Database.Batchable</code>.</li>
+        <li>Test only one execution of the execute method. Use <code>Test.startTest()</code> and <code>Test.stopTest()</code> to ensure job completion.</li>
+        <li>Minimize Web service callout times to ensure batch jobs execute quickly.</li>
+        <li>If the start method returns a QueryLocator without relationship subqueries, the batch job runs faster using chunked implementation.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Batch Apex is a powerful feature for processing large data sets in Salesforce without hitting governor limits. It provides an efficient way to handle bulk data operations asynchronously.</p>
+</div>
 
         <!-- TAB 20: TRIGGERS -->
         <div class="content-section">
