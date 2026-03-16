@@ -49,7 +49,8 @@ There are two ways to view this project:
 
 ### Option 1: View Live on GitHub Pages
 You can view the site directly at:
-`[https://[your-username].github.io/[repo-name]/](https://siyamthanda-code.github.io/salesforce/)`
+
+https://siyamthanda-code.github.io/salesforce/
 
 ### Option 2: Run Locally
 1.  **Clone the repository:**
