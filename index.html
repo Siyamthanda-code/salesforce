@@ -2099,12 +2099,90 @@
     <p>Salesforce Process Builder is a powerful tool that can be used to automate business processes. It is an important part of the entire Salesforce automation bundle.</p>
 </div>
 
-        <!-- TAB 18: BATCH APEX -->
-        <div class="content-section">
-            <h1>Batch Apex</h1>
-            <p>Batch Apex is used to process large numbers of records that would exceed normal processing limits.</p>
-            <p>It breaks the processing into manageable chunks to avoid hitting Governor Limits.</p>
-        </div>
+        <!-- TAB 19: WORKBENCH (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>What is Workbench in Salesforce?</h1>
+    <p>Workbench Salesforce is a web-based tool designed for Salesforce Administrators and Developers. It allows them to interact with Salesforce organization or Force APIs to update, delete, insert, and export data. It is a highly adaptable and cloud-hosted toolkit.</p>
+
+    <h2>Workbench Features</h2>
+    
+    <h3>Data Management Capabilities</h3>
+    <ul>
+        <li><strong>Edit:</strong> Click and edit single records.</li>
+        <li><strong>ZIP File:</strong> Upload a ZIP file containing binary files and a CSV file to insert, upsert, delete, or update binary files.</li>
+        <li><strong>Smart Lookup:</strong> Find relevant Salesforce IDs through the Smart Lookup feature.</li>
+        <li><strong>Delete and Purge:</strong> Delete records (retrievable from recycle bin) or Purge them to delete permanently.</li>
+    </ul>
+
+    <h3>Data Security</h3>
+    <ul>
+        <li><strong>CSRF Protection:</strong> Protects data from hackers. It is dependent on the code in Workbench.</li>
+        <li><strong>SSL:</strong> Salesforce uses SSL to connect to Workbench by default.</li>
+    </ul>
+
+    <h2>How to Login to Workbench Salesforce?</h2>
+    <ol>
+        <li><strong>Access:</strong> Go to <code>https://workbench.developerforce.com/login.php</code>.</li>
+        <li><strong>Login:</strong> Log in with your Salesforce credentials. Select the desired environment and API versions. Tick the terms and conditions checkbox and hit <strong>Login with Salesforce</strong>.</li>
+        <li><strong>Jump To Menu:</strong> After logging in, you will see a Jump to menu. You can switch between different options:
+            <ul>
+                <li>Apex Class</li>
+                <li>Apex Page</li>
+                <li>Workflow</li>
+                <li>Approval</li>
+                <li>SOSL Query</li>
+                <li>SOQL Query</li>
+                <li>Insert, Update, Delete, Undo, Upsert</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Navigating Workbench Menus</h2>
+    <p>On the top menu bar, you will see five drop-down items: Info, Queries, Data, Migration, and Utilities.</p>
+
+    <h3>1. Info</h3>
+    <p>Contains three sections:</p>
+    <ul>
+        <li><strong>Standard & Custom Objects:</strong> Choose an object to view related information.</li>
+        <li><strong>Metadata Types & Components:</strong> Choose components like Apex Class, Approval, Workflow, or Apex Page. All related information will be displayed.</li>
+        <li><strong>Session Information:</strong> Displays current user session details (connection mode, profile ID, user info). System Administrators can end other sessions.</li>
+    </ul>
+
+    <h3>2. Queries</h3>
+    <p>Allows you to run queries:</p>
+    <ul>
+        <li><strong>SOQL Query:</strong> Select objects and fields, apply conditions, and view records as a list or matrix. You can download results in CSV format.</li>
+        <li><strong>SOSL Query:</strong> Perform text-based searches similarly to SOQL.</li>
+    </ul>
+
+    <h3>3. Data</h3>
+    <p>Perform data operations on objects:</p>
+    <ul>
+        <li>Insert, Update, Delete, Undo, Upsert.</li>
+        <li>Upload records from ZIP or CSV files.</li>
+        <li>Click View in Salesforce to be redirected to your org.</li>
+    </ul>
+
+    <h3>4. Migration</h3>
+    <p>Retrieve packages using <code>package.xml</code> and deploy them directly to the Salesforce organization.</p>
+
+    <h3>5. Utilities</h3>
+    <ul>
+        <li><strong>REST Explorer:</strong> Choose HTTP methods (GET, POST, etc.) to perform REST API services.</li>
+        <li><strong>Apex Execute:</strong> Create, delete, and update records or new objects using Apex scripts. New objects containing null values must be set after creation.</li>
+        <li><strong>Password Management:</strong> Set and reset passwords for the Salesforce org.</li>
+    </ul>
+
+    <h2>Advantages of Workbench Salesforce</h2>
+    <ul>
+        <li><strong>Data Management:</strong> Edit records by clicking unique IDs. Upload ZIP files for binary data operations.</li>
+        <li><strong>Smart Lookup:</strong> Provides foreign or standard ID lookup fields to find relevant Salesforce IDs during insert, update, or delete.</li>
+        <li><strong>Easy Data Extraction:</strong> Simple removal of information related to users, roles, profiles, and permission sets.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Workbench in Salesforce is a powerful and secure data management tool that is of great help to developers. It makes both data management and extraction much easier.</p>
+</div>
 
         <!-- TAB 19: WORKFLOW -->
         <div class="content-section">
