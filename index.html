@@ -2568,16 +2568,179 @@ database.executeBatch(b);</code></pre>
     <p>Triggers in Salesforce are essential for performing custom actions before or after database events. They provide flexibility that point-and-click tools cannot, allowing for complex business logic implementation.</p>
 </div>
 
-        <!-- TAB 22: CHEAT SHEET -->
-        <div class="content-section">
-            <h1>Salesforce Cheat Sheet</h1>
-            <p>Quick reference guide for common Salesforce tasks:</p>
-            <ul>
-                <li><strong>Global Search:</strong> Magnifying glass icon.</li>
-                <li><strong>Create New:</strong> The "Create" dropdown in the top right.</li>
-                <li><strong>Setup:</strong> Gear icon > Setup.</li>
-            </ul>
-        </div>
+       <!-- TAB 23: LIGHTNING TUTORIAL (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Salesforce Lightning Tutorial</h1>
+    <p>Salesforce Lightning is a platform that provides tools to build next-generation UI and UX in Salesforce. It helps organizations create a modern productivity-boosting user experience.</p>
+
+    <h2>Lightning Experience</h2>
+    <p>Lightning Experience is used to create a fast, beautiful, and unique user experience so that sales teams can sell faster. It uses the open-source Aura framework but has a completely re-designed framework for a modern user interface.</p>
+    
+    <h3>Key Features</h3>
+    <ul>
+        <li>Modern user experience across every device.</li>
+        <li>Tools to build/update applications with Lightning App Builder.</li>
+        <li>Components for dynamic web applications.</li>
+    </ul>
+
+    <h2>Lightning Component</h2>
+    <p>Lightning Component is a UI framework to develop dynamic web applications for mobiles and desktops. It uses JavaScript (client-side) and Apex (server-side) to create single-page web applications.</p>
+
+    <h3>Example: Weather Application</h3>
+    <pre><code>&lt;aura:application&gt;
+    &lt;ns:myAwesomeMap lat="12.9049" lon="77.6460" /&gt;
+    &lt;ns:weather lat="37.7833" lon="122.4167" /&gt;
+&lt;/aura:application&gt;</code></pre>
+
+    <h3>Important Features</h3>
+    <ul>
+        <li><strong>Event-driven Architecture:</strong> UI events are driven by user interaction, handled by event handlers.</li>
+        <li><strong>Out-of-the-box Components:</strong> Over 175 features available.</li>
+        <li><strong>Rich Component Ecosystem:</strong> Use already available components.</li>
+        <li><strong>Faster Performance:</strong> Sends only necessary data to increase efficiency.</li>
+        <li><strong>Offline Capability:</strong> Use components anywhere, even offline.</li>
+    </ul>
+
+    <h2>Open-source Aura Framework</h2>
+    <p>With the Aura framework, you can build apps regardless of data type (structured or unstructured). It allows building UIs without technical coding.</p>
+    <ul>
+        <li><strong>Aura Namespace:</strong> Components to simplify app logic.</li>
+        <li><strong>UI Namespace:</strong> Components for the user interface.</li>
+        <li><strong>Force Namespace:</strong> Components for Salesforce.</li>
+    </ul>
+
+    <h2>Browser Support</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Chrome</th>
+                <th>Firefox</th>
+                <th>Safari</th>
+                <th>Edge</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Lightning Experience</td>
+                <td>Latest</td>
+                <td>Latest</td>
+                <td>11.x+</td>
+                <td>Latest</td>
+            </tr>
+            <tr>
+                <td>Lightning Out</td>
+                <td>Latest</td>
+                <td>Latest</td>
+                <td>11.x+</td>
+                <td>Latest</td>
+            </tr>
+            <tr>
+                <td>Salesforce Console</td>
+                <td>Latest</td>
+                <td>Latest</td>
+                <td>11.x+</td>
+                <td>Latest</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Using Developer Console</h2>
+    <p>The Developer Console provides tools to develop apps. It consists of:</p>
+    <ul>
+        <li><strong>Box 1 (Menu Bar):</strong> Create or open Lightning resources (Tokens, Interface, Application, Component, Event).</li>
+        <li><strong>Box 2 (Workspace):</strong> Work on your Lightning resources.</li>
+        <li><strong>Box 3 (Sidebar):</strong> Create or relocate client-side resources (Design, Helper, Style, Controller, SVG, Documentation, Renderer).</li>
+    </ul>
+
+    <h2>Creating a Component (Example: Loading Contacts)</h2>
+    <p>To load contacts, we need an Apex Controller and two components: <code>contacts</code> and <code>contactList</code>.</p>
+
+    <h3>1. Apex Controller (ContactController.apxc)</h3>
+    <pre><code>public with sharing class ContactController {
+    @AuraEnabled
+    public static List&lt;Contact&gt; getContacts() {
+        List&lt;Contact&gt; contacts = [SELECT Id, Name, MailingStreet, Phone, Email, LeadSource FROM Contact];
+        return contacts;
+    }
+}</code></pre>
+
+    <h3>2. Component (contacts.cmp)</h3>
+    <pre><code>&lt;aura:component&gt;
+    &lt;aura:attribute name="contact" type="Contact" /&gt;
+    &lt;lightning:card variant="Narrow" title="{!v.contact.Name}" iconName="standard:contact"&gt;
+        &lt;aura:set attribute="actions"&gt;
+            &lt;lightning:button name="details" label="Details" onclick="{!c.goToRecord}" /&gt;
+        &lt;/aura:set&gt;
+        &lt;p class="slds-p-horizontal_small"&gt;{!v.contact.Phone}&lt;/p&gt;
+        &lt;p class="slds-p-horizontal_small"&gt;{!v.contact.MailingStreet}&lt;/p&gt;
+    &lt;/lightning:card&gt;
+&lt;/aura:component&gt;</code></pre>
+
+    <h3>3. Component (contactList.cmp)</h3>
+    <pre><code>&lt;aura:component controller="ContactController"&gt;
+    &lt;aura:handler name="init" value="{!this}" action="{!c.doInit}"/&gt;
+    &lt;aura:attribute name="contacts" type="Contact[]"/&gt;
+    &lt;!-- Layout and Iteration Code Here --&gt;
+    &lt;aura:iteration var="contact" items="{!v.contacts}"&gt;
+        &lt;c:contacts contact="{!contact}"/&gt;
+    &lt;/aura:iteration&gt;
+&lt;/aura:component&gt;</code></pre>
+
+    <h3>4. Controller (contactListController.js)</h3>
+    <pre><code>({
+    doInit : function(component, event, helper) {
+        helper.loadContacts(component);
+    },
+    handleSelect : function(component, event, helper) {
+        var contacts = component.get("v.contacts");
+        var contactList = component.get("v.contactList");
+        var selected = event.getSource().get("v.value");
+        var filter = [];
+        for (var i=0; i<contactList.length; i++) {
+            var c = contactList[i];
+            if(selected == "All" || c.LeadSource == selected) {
+                filter.push(c);
+            }
+        }
+        component.set("v.contacts", filter);
+        helper.updateTotal(component);
+    }
+})</code></pre>
+
+    <h3>5. Helper (contactListHelper.js)</h3>
+    <pre><code>({
+    loadContacts : function(cmp) {
+        var action = cmp.get("c.getContacts");
+        action.setCallback(this, function(response){
+            var state = response.getState();
+            if (state === "SUCCESS"){
+                cmp.set("v.contacts", response.getReturnValue());
+                cmp.set("v.contactList", response.getReturnValue());
+                this.updateTotal(cmp);
+            }
+        });
+        $A.enqueueAction(action);
+    },
+    updateTotal: function(cmp){
+        var contacts = cmp.get("v.contacts");
+        cmp.set("v.totalContacts", contacts.length);
+    }
+})</code></pre>
+
+    <h2>Firing Events</h2>
+    <p>Lightning Experience handles force events. The controller code to navigate to a record:</p>
+    <pre><code>({
+    goToRecord : function(component, event, helper) {
+        var sObjectEvent = $A.get("e.force:navigateToSObject");
+        sObjectEvent.setParams({ "recordId": component.get("v.contact.Id") });
+        sObjectEvent.fire();
+    }
+})</code></pre>
+
+    <h2>Conclusion</h2>
+    <p>Salesforce Lightning provides a modern framework for building dynamic applications. It offers a component-based architecture, event-driven programming, and seamless integration with Salesforce data.</p>
+</div>
 
         <!-- TAB 23: FAQ -->
         <div class="content-section">
