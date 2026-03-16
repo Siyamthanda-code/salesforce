@@ -2742,15 +2742,87 @@ database.executeBatch(b);</code></pre>
     <p>Salesforce Lightning provides a modern framework for building dynamic applications. It offers a component-based architecture, event-driven programming, and seamless integration with Salesforce data.</p>
 </div>
 
-        <!-- TAB 23: FAQ -->
-        <div class="content-section">
-            <h1>Frequently Asked Questions</h1>
-            <p><strong>Q: Is Salesforce free?</strong><br>
-            A: It has a free Developer Edition for learning, but production licenses are paid.</p>
-            
-            <p><strong>Q: What language does Salesforce use?</strong><br>
-            A: Apex (similar to Java) for backend, and Lightning Web Components (JavaScript) for frontend.</p>
-        </div>
+        <!-- TAB 24: CHEAT SHEET (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Salesforce Cheat Sheet</h1>
+    <p>This Salesforce cheat sheet is a handy reference to quickly brush up your knowledge of Salesforce features and functionalities.</p>
+
+    <h2>Introduction</h2>
+    <ul>
+        <li><strong>About Salesforce:</strong> A leading Customer Relationship Management (CRM) software that helps organizations track accounts, contacts, and opportunities.</li>
+        <li><strong>Sales Cloud:</strong> Focuses on supporting sales processes (campaigns, leads, accounts, contacts). Used by sales organizations.</li>
+        <li><strong>Service Cloud:</strong> Provides functionalities like entitlements, knowledge bases, and case management. Used by support organizations.</li>
+    </ul>
+
+    <h2>Salesforce Relational Tables</h2>
+    <p>The Salesforce platform stores data in relational tables. These relational tables are also called API objects.</p>
+
+    <h2>Salesforce Objects</h2>
+    <p>Salesforce objects are database tables that allow you to store specific data.</p>
+
+    <h3>Standard Objects</h3>
+    <p>Created for the user by the Salesforce platform.</p>
+    <ul>
+        <li><strong>Account:</strong> Query and manage accounts in an organization.</li>
+        <li><strong>Account History:</strong> Identify changes to an account.</li>
+        <li><strong>Case:</strong> Manage cases for the organization.</li>
+        <li><strong>Contact:</strong> Manage individuals associated with an Account.</li>
+        <li><strong>User:</strong> Query information about users and modify information.</li>
+        <li><strong>Asset:</strong> Track assets previously sold to customer accounts.</li>
+        <li><strong>Domain:</strong> A read-only object to query domains associated with websites.</li>
+    </ul>
+
+    <h3>Custom Objects</h3>
+    <p>Created by users based on business processes. Uses include:</p>
+    <ul>
+        <li>Build page layouts to control fields and read-write access.</li>
+        <li>Import custom object records.</li>
+        <li>Create reports and dashboards.</li>
+        <li>Create custom tabs.</li>
+        <li>Track tasks and events.</li>
+    </ul>
+
+    <h3>External Objects</h3>
+    <p>Objects that you create to map to the data stored <strong>outside your organization</strong>. They help access external data within Salesforce.</p>
+
+    <h2>Automating Business Processes</h2>
+    <ol>
+        <li>Select an object to start a process.</li>
+        <li>Add criteria to the object to allow the start of the process.</li>
+        <li>Add actions to the criteria to trigger execution.</li>
+    </ol>
+
+    <h2>Importing Data</h2>
+    <p><strong>Steps:</strong> Setup Home → Data → Data Import Wizard → Launch Wizard → Add new records → Select field to match existing records → Match incoming field names → Next.</p>
+
+    <h2>Exporting Data</h2>
+    <p><strong>Steps:</strong> Setup Home → Data → Data Export → Choose Salesforce objects (check boxes) → Next → Get hyperlink → Download data.</p>
+
+    <h2>Reports</h2>
+    <p>A list of records meeting defined criteria. Stored in folders.</p>
+    <p><strong>Steps:</strong> Reports → Create New Report → Select object(s) → Define Settings → Choose filter → Save report → Apply filter.</p>
+
+    <h2>Dashboards</h2>
+    <p>A visual display of information gathered from reports. Stored in folders. Each dashboard has a single underlying report.</p>
+    <ul>
+        <li>Provides more insights than reports.</li>
+        <li>Combines data from many reports.</li>
+        <li>Shows summarized results.</li>
+    </ul>
+
+    <h2>Visualforce</h2>
+    <p>Visualforce is a framework that allows developers to build sophisticated, custom, dynamic, and reusable interfaces. It is part of the Salesforce platform.</p>
+    <p><strong>Steps to Create:</strong> Dashboard → New Dashboard → Fill name/description → Add components.</p>
+
+    <h2>Other Features</h2>
+    <ul>
+        <li><strong>Sales Collaboration:</strong> Track stages, values, and probabilities of closing a sale.</li>
+        <li><strong>Email Integration:</strong> Send emails to contacts in bulk.</li>
+        <li><strong>Files Sync and Share:</strong> File and content management for CRM systems.</li>
+        <li><strong>Sales Forecasting:</strong> Project sales revenue using past data.</li>
+        <li><strong>Territory Management:</strong> Manage and assign sales territories.</li>
+    </ul>
+</div>
     </div>
 </div>
 
