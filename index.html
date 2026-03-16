@@ -2416,12 +2416,157 @@ database.executeBatch(b);</code></pre>
     <p>Workflow rules are essential for automating business processes in Salesforce. They help enforce consistency, ensure compliance, and eliminate manual intervention for routine tasks.</p>
 </div>
 
-        <!-- TAB 21: LIGHTNING TUTORIAL -->
-        <div class="content-section">
-            <h1>Salesforce Lightning Tutorial</h1>
-            <p>Lightning Experience is the modern, fast, and beautiful user interface designed for Salesforce.</p>
-            <p>It offers new features, improved design, and better performance compared to Salesforce Classic.</p>
-        </div>
+        <!-- TAB 22: TRIGGERS (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Triggers in Salesforce</h1>
+    <p>In Salesforce, triggers are referred to as Apex Triggers. These are distinct and available specifically for common and expected actions like lead conversions. A trigger is Apex code used to perform an operation before or after a record is operated.</p>
+
+    <h2>Types of Apex Triggers</h2>
+    <ul>
+        <li><strong>Before Trigger:</strong> Used to update or validate record values before they are saved to the database.</li>
+        <li><strong>After Trigger:</strong> Used to access field values set by the system and affect changes in other records. The records that fire this trigger are read-only.</li>
+    </ul>
+
+    <h2>Bulky Triggers</h2>
+    <p>All triggers are, by default, bulky triggers, meaning they can process multiple records at a time. They handle:</p>
+    <ul>
+        <li>Importing data</li>
+        <li>Mass actions</li>
+        <li>Bulk API calls</li>
+        <li>Recursive Apex methods and triggers invoking bulk DML statements</li>
+    </ul>
+
+    <h2>Trigger Syntax</h2>
+    <pre><code>trigger TriggerName on ObjectName (trigger_events) {
+    // code_block
+}</code></pre>
+
+    <h3>Trigger Events</h3>
+    <ul>
+        <li><strong>Before Insert:</strong> Code executes before a new record is inserted.</li>
+        <li><strong>Before Update:</strong> Code executes before a record is updated.</li>
+        <li><strong>Before Delete:</strong> Code executes before a record is deleted.</li>
+        <li><strong>After Insert:</strong> Code executes after the record is inserted.</li>
+        <li><strong>After Update:</strong> Code executes after the record is updated.</li>
+        <li><strong>After Delete:</strong> Code executes after the record is deleted.</li>
+        <li><strong>After Undelete:</strong> Code executes after a record is restored from the Recycle Bin.</li>
+    </ul>
+
+    <h2>Trigger Context Variables</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Usage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><code>isInsert</code></td><td>Returns true if fired due to an insert operation.</td></tr>
+            <tr><td><code>isUpdate</code></td><td>Returns true if fired due to an update operation.</td></tr>
+            <tr><td><code>isDelete</code></td><td>Returns true if fired due to a delete operation.</td></tr>
+            <tr><td><code>isBefore</code></td><td>Returns true if fired before records are saved.</td></tr>
+            <tr><td><code>isAfter</code></td><td>Returns true if fired after records are saved.</td></tr>
+            <tr><td><code>isUndelete</code></td><td>Returns true if fired after a record is recovered from Recycle Bin.</td></tr>
+            <tr><td><code>new</code></td><td>List of new versions of sObject records.</td></tr>
+            <tr><td><code>old</code></td><td>List of old versions of sObject records.</td></tr>
+            <tr><td><code>newMap</code></td><td>Map of IDs to new versions of sObject records.</td></tr>
+            <tr><td><code>oldMap</code></td><td>Map of IDs to old versions of sObject records.</td></tr>
+            <tr><td><code>size</code></td><td>Total number of records in trigger invocation.</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Using Trigger Exceptions</h2>
+    <p>Triggers can prevent DML operations by calling the <code>addError()</code> method on a record or field. A custom error message is displayed in the application interface.</p>
+    <ul>
+        <li><strong>Apex DML:</strong> A single error results in the entire operation rolling back.</li>
+        <li><strong>API Bulk DML:</strong> The runtime engine sets aside bad records and attempts a partial save of valid records.</li>
+    </ul>
+
+    <h2>Triggers vs. Workflows</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Salesforce Trigger</th>
+                <th>Salesforce Workflow</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Definition</td>
+                <td>Code executed before or after record operations.</td>
+                <td>Automated process based on evaluation and rule criteria.</td>
+            </tr>
+            <tr>
+                <td>DML Operations</td>
+                <td>Allowed (more than 15 DMLs).</td>
+                <td>Not possible.</td>
+            </tr>
+            <tr>
+                <td>Database Queries</td>
+                <td>Allowed (more than 20 SOQLs).</td>
+                <td>Not possible.</td>
+            </tr>
+            <tr>
+                <td>Scope</td>
+                <td>Access triggers across an object and related objects.</td>
+                <td>Workflow over an object only.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Limitations of Workflows That Triggers Overcome</h3>
+    <ul>
+        <li>Workflows cannot create or update a separate object.</li>
+        <li>You cannot reference certain fields when using workflows.</li>
+        <li>Workflows are limited to field updates and emails.</li>
+    </ul>
+
+    <h2>Trigger Scenarios in Salesforce</h2>
+
+    <h3>Scenario 1: Prevent Duplicate Accounts</h3>
+    <pre><code>trigger AccountDuplicateTrigger on Account (before insert, before update) {
+    for (Account a : Trigger.new) {
+        List<Account> existingAccounts = [SELECT Id FROM Account WHERE Name = :a.Name];
+        if (!existingAccounts.isEmpty()) {
+            a.Name.addError('You cannot create a duplicate Account.');
+        }
+    }
+}</code></pre>
+
+    <h3>Scenario 2: Add Prefix to Lead Name</h3>
+    <pre><code>trigger PrefixDoctor on Lead (before insert, before update) {
+    for (Lead l : Trigger.new) {
+        l.FirstName = 'Dr. ' + l.FirstName;
+    }
+}</code></pre>
+
+    <h3>Scenario 3: Prevent Account Deletion</h3>
+    <pre><code>trigger AccountDelete on Account (before delete) {
+    for (Account acc : Trigger.old) {
+        acc.addError('You cannot delete the Account record.');
+    }
+}</code></pre>
+
+    <h2>Recursive Triggers</h2>
+    <p>A recursive trigger occurs when a trigger execution leads to the triggering of the same trigger again, creating an infinite loop. To avoid this:</p>
+    <ul>
+        <li>Review trigger logic to identify potential recursive scenarios.</li>
+        <li>Use static variables or flags to track execution and prevent retriggering.</li>
+        <li>Ensure the trigger handles bulk data processing.</li>
+    </ul>
+
+    <h2>Bulkifying Triggers</h2>
+    <p>Triggers should handle single records as well as thousands. Key points:</p>
+    <ul>
+        <li>Write triggers that work on collections of sObjects.</li>
+        <li>Perform efficient SOQL and DML operations.</li>
+        <li>Failure to bulkify may result in governor limits during mass updates.</li>
+    </ul>
+
+    <h2>Conclusion</h2>
+    <p>Triggers in Salesforce are essential for performing custom actions before or after database events. They provide flexibility that point-and-click tools cannot, allowing for complex business logic implementation.</p>
+</div>
 
         <!-- TAB 22: CHEAT SHEET -->
         <div class="content-section">
