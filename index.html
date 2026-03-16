@@ -2342,12 +2342,79 @@ database.executeBatch(b);</code></pre>
     <p>Batch Apex is a powerful feature for processing large data sets in Salesforce without hitting governor limits. It provides an efficient way to handle bulk data operations asynchronously.</p>
 </div>
 
-        <!-- TAB 20: TRIGGERS -->
-        <div class="content-section">
-            <h1>Triggers in Salesforce</h1>
-            <p>Apex triggers enable you to perform custom actions before or after events to records in Salesforce, such as insertions, updates, or deletions.</p>
-            <p>Syntax: <code>trigger TriggerName on ObjectName (trigger_events) { ... }</code></p>
-        </div>
+        <!-- TAB 21: WORKFLOW (COMPLETE VERSION) -->
+<div class="content-section">
+    <h1>Workflow in Salesforce</h1>
+    <p>Workflow in Salesforce is basically a container or business logic engine which automates certain actions based on particular criteria. If the criteria are met, the actions get executed. When they are not met, records will get saved but no action will get executed.</p>
+
+    <h2>Workflow Rules</h2>
+    <p>Workflow rules allow businesses to automate and streamline processes by outlining a sequence of steps based on certain conditions or triggers. They enable organizations to set specific rules that determine how data or tasks flow within their system.</p>
+
+    <h2>Components of Workflow in Salesforce</h2>
+    <p>Workflow rules can be broken down into two main components:</p>
+    <ul>
+        <li><strong>Criteria:</strong> Conditions you are supposed to put in order to test a record (the "If" statement).</li>
+        <li><strong>Actions:</strong> What occurs after a record meets the criteria (the "Then" statement).</li>
+    </ul>
+
+    <h3>Types of Actions</h3>
+    <ul>
+        <li><strong>Immediate Actions:</strong> Executed immediately when a record is created or edited.</li>
+        <li><strong>Time-dependent Actions:</strong> Executed after a certain duration (e.g., 10 days before close date). The workflow re-evaluates the record before execution.</li>
+    </ul>
+
+    <h2>Steps Occurring During Workflow Execution</h2>
+    <p>The following steps occur whenever you create or edit a record:</p>
+    <ol>
+        <li>The criteria of a particular workflow rule active on that object get evaluated.</li>
+        <li><strong>If True:</strong> The actions associated with the particular workflow rule get executed.</li>
+        <li><strong>If False:</strong> The records get saved without executing any action.</li>
+    </ol>
+
+    <h2>Types of Evaluation Criteria</h2>
+    <ul>
+        <li><strong>Created:</strong> Action executes only when a record is created.</li>
+        <li><strong>Created, and every time it's edited:</strong> Action executes on creation and every subsequent edit.</li>
+        <li><strong>Created, and every time it's edited to subsequently meet criteria:</strong> Action executes when created (if criteria met) or when edited to meet criteria. If a record already meets criteria and is edited but still meets criteria, action does not repeat.</li>
+    </ul>
+
+    <h2>Types of Workflow Actions</h2>
+    <ul>
+        <li>Assigning a task to someone.</li>
+        <li>Doing a field update.</li>
+        <li>Sending an email.</li>
+        <li>Sending an outbound message.</li>
+    </ul>
+
+    <h2>How to Configure Workflow Rule Criteria</h2>
+    <ol>
+        <li><strong>Navigate:</strong> Go to <strong>Setup > Process Automation > Workflow Rules</strong>. Click on <strong>New Rule</strong>.</li>
+        <li><strong>Select Object:</strong> Choose the object for the rule (e.g., Lead) and click Next.</li>
+        <li><strong>Configure Rule:</strong> 
+            <ul>
+                <li>Enter <strong>Rule Name</strong>.</li>
+                <li>Select <strong>Evaluation Criteria</strong>.</li>
+                <li>Set <strong>Rule Criteria</strong>: Select criteria met from the drop-down. Select the Field, Operator, and Value. Explore different Field Types as needed.</li>
+            </ul>
+            Click <strong>Save & Next</strong>.
+        </li>
+        <li><strong>Add Immediate Action:</strong> Select an action type (e.g., New Email Alert). Configure details (Description, Unique Name, Email Template, Recipients) and click Done.</li>
+        <li><strong>Save & Done:</strong> Click Done on the rule summary page.</li>
+        <li><strong>Activate:</strong> Click <strong>Activate</strong> to enable the rule.</li>
+        <li><strong>Test:</strong> Create a new record for the selected object (e.g., New Lead). Enter details and Save. A screen confirming the data will appear, and a confirmation email will be sent.</li>
+    </ol>
+
+    <h2>Configuring Time-Dependent Workflow Actions</h2>
+    <ol>
+        <li><strong>Edit Rule:</strong> Go to the Workflow Rule page and click Edit. <strong>Deactivate</strong> the rule if necessary.</li>
+        <li><strong>Add Time Trigger:</strong> Click <strong>Add Time Trigger</strong>. Select the time offset (days, months, or years) and click Save.</li>
+        <li><strong>Add Action:</strong> Click <strong>Add Workflow Action</strong> (e.g., New Email Alert) and configure the alert.</li>
+        <li><strong>Activate:</strong> Click Done and then <strong>Activate</strong>.</li>
+    </ol>
+
+    <h2>Conclusion</h2>
+    <p>Workflow rules are essential for automating business processes in Salesforce. They help enforce consistency, ensure compliance, and eliminate manual intervention for routine tasks.</p>
+</div>
 
         <!-- TAB 21: LIGHTNING TUTORIAL -->
         <div class="content-section">
