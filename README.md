@@ -1,7 +1,4 @@
 # Salesforce Handbook: A Comprehensive Tutorial Reference
-
-![GitHub last commit](https://img.shields.io/github/last-commit/your-username/your-repo-name?style=flat-square)
-![GitHub stars](https://img.shields.io/github/stars/your-username/your-repo-name?style=social)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 
 ## 📖 Overview
@@ -51,13 +48,13 @@ This handbook is organized into the following sections:
 There are two ways to view this project:
 
 ### Option 1: View Live on GitHub Pages
-If you have hosted this repository on GitHub Pages, you can view the site directly at:
-`https://[your-username].github.io/[repo-name]/`
+You can view the site directly at:
+`[https://[your-username].github.io/[repo-name]/](https://siyamthanda-code.github.io/salesforce/)`
 
 ### Option 2: Run Locally
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/siyamthanda-code/salesforce.git
     ```
 2.  **Open the file:**
     Navigate to the project folder and open `index.html` in your preferred web browser.
@@ -82,6 +79,6 @@ This project is licensed under the MIT License. You are free to use, modify, and
 
 ## 🙏 Acknowledgments
 
-*   Content compiled and structured by [Your Name].
+*   Content compiled and structured by Siyamthanda Amahle Buthelezi.
 *   Inspired by the need for a fast, offline-capable Salesforce study guide.
 *   Thanks to the Salesforce community for continuous learning resources.
