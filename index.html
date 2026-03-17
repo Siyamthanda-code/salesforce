@@ -163,7 +163,18 @@
 <div class="dictionary-container">
     <!-- LEFT SIDEBAR -->
     <div class="sidebar">
-        <div class="sidebar-header">📚 Salesforce Handbook</div>
+        <div class="sidebar-header">
+    <span>📚 Salesforce Tutorial</span>
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+</div>
+
+<!-- ADD THIS SEARCH BLOCK -->
+<div class="search-wrapper">
+    <input type="text" class="search-input" placeholder="Search topics..." id="searchInput" onkeyup="filterTopics()">
+</div>
+<!-- END SEARCH BLOCK -->
         
         <div class="nav-item active" onclick="showTab(0)">Salesforce Introduction</div>
         <div class="nav-item" onclick="showTab(1)">What is Salesforce?</div>
