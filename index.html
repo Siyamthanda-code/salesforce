@@ -2985,6 +2985,24 @@ database.executeBatch(b);</code></pre>
         }
     }
 
+    // --- 3. DARK MODE FUNCTION ---
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
        // --- 2. SEARCH FUNCTION (UPGRADED: HIGHLIGHT & AUTO-SWITCH) ---
     function filterTopics() {
         var input = document.getElementById("searchInput");
