@@ -2963,58 +2963,11 @@ database.executeBatch(b);</code></pre>
 </div>
 
 <script>
+    // --- 1. TAB SWITCHING FUNCTION ---
     function showTab(tabIndex) {
         // Get all nav items and content sections
         const navItems = document.querySelectorAll('.nav-item');
         const contentSections = document.querySelectorAll('.content-section');
-
-        // --- NEW: SEARCH FUNCTION ---
-function filterTopics() {
-    var input = document.getElementById("searchInput");
-    var filter = input.value.toUpperCase();
-    var navItems = document.querySelectorAll(".nav-item");
-
-    navItems.forEach(function(item) {
-        var txtValue = item.textContent || item.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            item.classList.remove("hidden-search");
-        } else {
-            item.classList.add("hidden-search");
-        }
-    });
-}
-
-// --- NEW: DARK MODE FUNCTION ---
-function toggleTheme() {
-    const body = document.body;
-    const icon = document.getElementById('theme-icon');
-    
-    if (body.getAttribute('data-theme') === 'dark') {
-        body.setAttribute('data-theme', 'light');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        localStorage.setItem('theme', 'light');
-    } else {
-        body.setAttribute('data-theme', 'dark');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        localStorage.setItem('theme', 'dark');
-    }
-}
-
-// --- NEW: LOAD SAVED THEME ON STARTUP ---
-document.addEventListener('DOMContentLoaded', function() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    const icon = document.getElementById('theme-icon');
-    
-    if (savedTheme === 'dark') {
-        document.body.setAttribute('data-theme', 'dark');
-        if(icon) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-    }
-});
         
         // Remove 'active' class from all items
         navItems.forEach(item => item.classList.remove('active'));
@@ -3024,6 +2977,54 @@ document.addEventListener('DOMContentLoaded', function() {
         navItems[tabIndex].classList.add('active');
         contentSections[tabIndex].classList.add('active');
     }
+
+    // --- 2. SEARCH FUNCTION ---
+    function filterTopics() {
+        var input = document.getElementById("searchInput");
+        var filter = input.value.toUpperCase();
+        var navItems = document.querySelectorAll(".nav-item");
+
+        navItems.forEach(function(item) {
+            var txtValue = item.textContent || item.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                item.classList.remove("hidden-search");
+            } else {
+                item.classList.add("hidden-search");
+            }
+        });
+    }
+
+    // --- 3. DARK MODE FUNCTION ---
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.setAttribute('data-theme', 'light');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // --- 4. LOAD SAVED THEME ON STARTUP ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        const icon = document.getElementById('theme-icon');
+        
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            if(icon) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        }
+    });
 </script>
 
 </body>
