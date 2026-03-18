@@ -275,6 +275,14 @@
         padding-bottom: 8px;
         margin-bottom: 10px;
     }
+        /* Highlight Style */
+.search-highlight {
+    background-color: #ffeb3b; /* Yellow */
+    color: #000;
+    padding: 1px 2px;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+}
 
     /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
@@ -2965,66 +2973,118 @@ database.executeBatch(b);</code></pre>
 <script>
     // --- 1. TAB SWITCHING FUNCTION ---
     function showTab(tabIndex) {
-        // Get all nav items and content sections
         const navItems = document.querySelectorAll('.nav-item');
         const contentSections = document.querySelectorAll('.content-section');
         
-        // Remove 'active' class from all items
         navItems.forEach(item => item.classList.remove('active'));
         contentSections.forEach(section => section.classList.remove('active'));
         
-        // Add 'active' class to clicked item and corresponding content
-        navItems[tabIndex].classList.add('active');
-        contentSections[tabIndex].classList.add('active');
+        if(navItems[tabIndex] && contentSections[tabIndex]) {
+            navItems[tabIndex].classList.add('active');
+            contentSections[tabIndex].classList.add('active');
+        }
     }
 
-    // --- 2. SEARCH FUNCTION ---
+       // --- 2. SEARCH FUNCTION (UPGRADED: HIGHLIGHT & AUTO-SWITCH) ---
     function filterTopics() {
         var input = document.getElementById("searchInput");
         var filter = input.value.toUpperCase();
         var navItems = document.querySelectorAll(".nav-item");
+        var contentSections = document.querySelectorAll(".content-section");
 
-        navItems.forEach(function(item) {
-            var txtValue = item.textContent || item.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                item.classList.remove("hidden-search");
+        // 1. Clear previous highlights
+        contentSections.forEach(section => {
+            unHighlightText(section);
+        });
+
+        // 2. If search bar is empty, show all tabs and stop
+        if (filter === "") {
+            navItems.forEach(item => item.classList.remove("hidden-search"));
+            return;
+        }
+
+        var firstMatchIndex = -1; // Track the first tab that matches
+
+        // 3. Loop through all content sections to find matches
+        contentSections.forEach(function(section, index) {
+            var tabText = navItems[index] ? (navItems[index].textContent || navItems[index].innerText) : "";
+            var contentText = section.textContent || section.innerText;
+
+            // Check if the keyword exists in the Tab Title OR the Content
+            if (tabText.toUpperCase().indexOf(filter) > -1 || contentText.toUpperCase().indexOf(filter) > -1) {
+                
+                // Show the sidebar tab
+                if(navItems[index]) {
+                    navItems[index].classList.remove("hidden-search");
+                }
+
+                // Record the first match found
+                if (firstMatchIndex === -1) {
+                    firstMatchIndex = index;
+                }
+
+                // Highlight the text inside the content
+                highlightText(section, filter);
+
             } else {
-                item.classList.add("hidden-search");
+                // Hide the sidebar tab if no match
+                if(navItems[index]) {
+                    navItems[index].classList.add("hidden-search");
+                }
             }
+        });
+
+        // 4. Auto-Switch Tab if the current one is hidden or if a better match is found
+        var currentActive = document.querySelector('.content-section.active');
+        var currentIndex = Array.from(contentSections).indexOf(currentActive);
+
+        // If current tab is hidden (doesn't match), jump to the first match
+        if (firstMatchIndex !== -1) {
+             if (navItems[currentIndex] && navItems[currentIndex].classList.contains('hidden-search')) {
+                 showTab(firstMatchIndex);
+             }
+        }
+    }
+
+    // --- HELPER: HIGHLIGHT FUNCTION ---
+    function highlightText(element, keyword) {
+        // We create a 'TreeWalker' to find text nodes safely (doesn't break HTML tags)
+        var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+        var nodesToHighlight = [];
+        
+        while (walker.nextNode()) {
+            if (walker.currentNode.nodeValue.toUpperCase().indexOf(keyword) > -1) {
+                nodesToHighlight.push(walker.currentNode);
+            }
+        }
+
+        nodesToHighlight.forEach(function(node) {
+            var span = document.createElement('span');
+            span.className = 'search-highlight';
+            
+            // Simple replacement logic for case-insensitivity
+            var regex = new RegExp('(' + keyword + ')', 'gi');
+            var newText = node.nodeValue.replace(regex, '<span class="search-highlight">$1</span>');
+            
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = newText;
+            
+            while (tempDiv.firstChild) {
+                node.parentNode.insertBefore(tempDiv.firstChild, node);
+            }
+            node.parentNode.removeChild(node);
         });
     }
 
-    // --- 3. DARK MODE FUNCTION ---
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.setAttribute('data-theme', 'light');
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        }
+    // --- HELPER: UN-HIGHLIGHT FUNCTION ---
+    function unHighlightText(element) {
+        var highlights = element.querySelectorAll('.search-highlight');
+        highlights.forEach(function(span) {
+            var parent = span.parentNode;
+            parent.replaceChild(document.createTextNode(span.textContent), span);
+            parent.normalize(); // Merges split text nodes back together
+        });
     }
-
-    // --- 4. LOAD SAVED THEME ON STARTUP ---
-    document.addEventListener('DOMContentLoaded', function() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        const icon = document.getElementById('theme-icon');
-        
-        if (savedTheme === 'dark') {
-            document.body.setAttribute('data-theme', 'dark');
-            if(icon) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            }
-        }
-    });
 </script>
 
 </body>
