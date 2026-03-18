@@ -8,11 +8,12 @@ The **Salesforce Handbook** is a static web application designed to be a complet
 Whether you are a beginner preparing for certification or an experienced professional needing a quick refresher, this handbook provides structured, searchable content in a clean, modern interface.
 
 **Key Features:**
-*   **24 Comprehensive Tabs:** Covering everything from Introduction to Batch Apex.
+*   **24 Comprehensive Tabs:** Covering everything from Introduction to the Cheat Sheet.
 *   **Static Site:** Built purely with HTML, CSS, and JavaScript. No server-side database required.
-*   **Fast & Responsive:** Optimized for both desktop and mobile devices.
-*   **Clean UI:** Sidebar navigation for easy topic switching.
+*   **Fast & Responsive:** Optimized for both desktop and mobile devices. Light/Dark mode support with preference saving.
+*   **Clean UI:** Sidebar navigation for easy topic switching. Fade-ins and transitions between tabs.
 *   **Interactive Tables & Lists:** Formatted data for easy consumption.
+*   **Deep Search Functionality:** Not just titles—the search bar filters content within the tabs and highlights matching keywords instantly.
 
 ## 📚 Topics Covered
 
